@@ -1,0 +1,94 @@
+{
+    "projects": [
+        {
+            "name": "RoboCop 2.0",
+            "description": "AI fejlesztés Alex Murphy-vel együttműködve és taktikai képességek fejlesztése.",
+            "status": "implementation",
+            "start_date": "2024-01-01",
+            "end_date": "2025-06-30",
+            "deadline": "2025-12-31",
+            "creator_id": 1,
+            "responsible_id": 2
+        },
+        {
+            "name": "ED-209 Közpép Afrikai megrendelés kezelése",
+            "description": "ED-209 robotok fejlesztése és telepítése az afrikai piacon.",
+            "status": "implementation",
+            "start_date": "2023-05-01",
+            "end_date": "2024-03-15",
+            "deadline": "2024-06-30",
+            "creator_id": 3,
+            "responsible_id": 4
+        },
+        {
+            "name": "Robotika Fejlesztés 2024",
+            "description": "Új robotikai technológiák fejlesztése és prototípusok tesztelése.",
+            "status": "analysis",
+            "start_date": "2024-07-01",
+            "end_date": "2025-12-31",
+            "deadline": "2025-12-31",
+            "creator_id": 5,
+            "responsible_id": 6
+        },
+        {
+            "name": "Katonai Robotok Modernizálása",
+            "description": "Katonai robotok modernizálása és új funkciók integrálása.",
+            "status": "implementation",
+            "start_date": "2024-03-01",
+            "end_date": "2024-12-31",
+            "deadline": "2025-01-31",
+            "creator_id": 7,
+            "responsible_id": 8
+        },
+        {
+            "name": "Új CRM Rendszer Fejlesztése",
+            "description": "CRM rendszer fejlesztése, amely javítja az ügyfélkapcsolati folyamatokat.",
+            "status": "implementation",
+            "start_date": "2023-11-01",
+            "end_date": "2024-06-30",
+            "deadline": "2024-06-30",
+            "creator_id": 9,
+            "responsible_id": 10
+        },
+        {
+            "name": "Digitális Kampányok Optimalizálása",
+            "description": "Digitális kampányok optimalizálása és teljesítményének növelése.",
+            "status": "analysis",
+            "start_date": "2024-02-01",
+            "end_date": "2024-11-30",
+            "deadline": "2024-12-31",
+            "creator_id": 11,
+            "responsible_id": 12
+        },
+        {
+            "name": "Robotikai Szabályozások Fejlesztése",
+            "description": "Új jogi és szabályozási keretek kidolgozása a robotikai technológiákhoz.",
+            "status": "implementation",
+            "start_date": "2023-12-01",
+            "end_date": "2025-05-31",
+            "deadline": "2025-06-30",
+            "creator_id": 13,
+            "responsible_id": 14
+        },
+        {
+            "name": "Szervezeti Hatékonyság Növelése",
+            "description": "A szervezet belső folyamatai és hatékonysága növelésének fejlesztése.",
+            "status": "completed",
+            "start_date": "2022-09-01",
+            "end_date": "2023-01-10",
+            "deadline": "2023-02-28",
+            "creator_id": 15,
+            "responsible_id": 16
+        },
+        {
+            "name": "AI Fejlesztés a Képzésben",
+            "description": "AI technológiák integrálása az oktatási és képzési rendszerekbe.",
+            "status": "analysis",
+            "start_date": "2024-04-01",
+            "end_date": "2025-01-31",
+            "deadline": "2025-01-31",
+            "creator_id": 17,
+            "responsible_id": 18
+        }
+    ]
+}

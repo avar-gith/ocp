@@ -84,5 +84,4 @@ class Command(BaseCommand):
                     level=skill_data['level'],
                     employee=employee
                 )
-
-        self.stdout.write(self.style.SUCCESS('Adatok sikeresen importálva.'))
+                

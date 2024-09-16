@@ -1,0 +1,184 @@
+{
+    "stories": [
+        {
+            "name": "AI Algoritmus Fejlesztés",
+            "project_id": 1,
+            "description": "Fejlesztések az AI algoritmusok terén, a RoboCop 2.0 projekt keretében.",
+            "status": "implementation",
+            "creation_date": "2024-01-15",
+            "deadline": "2025-06-30",
+            "creator_id": 1,
+            "responsible_id": 2
+        },
+        {
+            "name": "Taktikai Képességek Tesztelése",
+            "project_id": 1,
+            "description": "Az új taktikai képességek tesztelése és finomhangolása.",
+            "status": "new",
+            "creation_date": "2024-02-01",
+            "deadline": "2025-06-30",
+            "creator_id": 3,
+            "responsible_id": 4
+        },
+        {
+            "name": "Robot Telepítés Afrikában",
+            "project_id": 2,
+            "description": "ED-209 robotok telepítése az afrikai piacon, a projekt második szakasza.",
+            "status": "completed",
+            "creation_date": "2023-06-15",
+            "deadline": "2024-03-15",
+            "creator_id": 5,
+            "responsible_id": 6
+        },
+        {
+            "name": "Piackutatás Afrikában",
+            "project_id": 2,
+            "description": "Piackutatás és elemzés az afrikai robotpiacon.",
+            "status": "completed",
+            "creation_date": "2023-07-01",
+            "deadline": "2024-03-15",
+            "creator_id": 7,
+            "responsible_id": 8
+        },
+        {
+            "name": "Prototípus Tesztelés",
+            "project_id": 3,
+            "description": "Új robotikai prototípusok tesztelése és értékelése.",
+            "status": "new",
+            "creation_date": "2024-08-01",
+            "deadline": "2025-12-31",
+            "creator_id": 9,
+            "responsible_id": 10
+        },
+        {
+            "name": "Technológiai Fejlesztések",
+            "project_id": 3,
+            "description": "A robotikai technológiák fejlesztése a projekt céljainak eléréséhez.",
+            "status": "analysis",
+            "creation_date": "2024-09-15",
+            "deadline": "2025-12-31",
+            "creator_id": 11,
+            "responsible_id": 12
+        },
+        {
+            "name": "Katonai Robotok Tesztelése",
+            "project_id": 4,
+            "description": "A modernizált katonai robotok tesztelése és értékelése.",
+            "status": "implementation",
+            "creation_date": "2024-05-01",
+            "deadline": "2025-01-31",
+            "creator_id": 13,
+            "responsible_id": 14
+        },
+        {
+            "name": "Új Funkciók Integrálása",
+            "project_id": 4,
+            "description": "Új funkciók integrálása a katonai robotokba.",
+            "status": "implementation",
+            "creation_date": "2024-06-01",
+            "deadline": "2025-01-31",
+            "creator_id": 15,
+            "responsible_id": 16
+        },
+        {
+            "name": "CRM Rendszer Tesztelés",
+            "project_id": 5,
+            "description": "Az új CRM rendszer funkcióinak tesztelése és hibajavítás.",
+            "status": "completed",
+            "creation_date": "2024-01-15",
+            "deadline": "2024-06-30",
+            "creator_id": 17,
+            "responsible_id": 18
+        },
+        {
+            "name": "Felhasználói Visszajelzések",
+            "project_id": 5,
+            "description": "Felhasználói visszajelzések gyűjtése és elemzése az új CRM rendszerrel kapcsolatban.",
+            "status": "completed",
+            "creation_date": "2024-03-01",
+            "deadline": "2024-06-30",
+            "creator_id": 1,
+            "responsible_id": 2
+        },
+        {
+            "name": "Kampány Tervezés",
+            "project_id": 6,
+            "description": "Digitális kampányok tervezése és stratégiai tervezés.",
+            "status": "analysis",
+            "creation_date": "2024-03-15",
+            "deadline": "2024-11-30",
+            "creator_id": 3,
+            "responsible_id": 4
+        },
+        {
+            "name": "Kampány Eredmények Értékelése",
+            "project_id": 6,
+            "description": "A kampányok teljesítményének értékelése és optimalizálása.",
+            "status": "analysis",
+            "creation_date": "2024-05-01",
+            "deadline": "2024-11-30",
+            "creator_id": 5,
+            "responsible_id": 6
+        },
+        {
+            "name": "Szabályozási Keretek Fejlesztése",
+            "project_id": 7,
+            "description": "Jogi és szabályozási keretek kidolgozása a robotikai technológiákhoz.",
+            "status": "implementation",
+            "creation_date": "2024-01-01",
+            "deadline": "2025-05-31",
+            "creator_id": 7,
+            "responsible_id": 8
+        },
+        {
+            "name": "Jogszabályi Elemzések",
+            "project_id": 7,
+            "description": "A robotikai technológiák jogszabályi elemzése és megfelelőségi vizsgálatok.",
+            "status": "implementation",
+            "creation_date": "2024-03-01",
+            "deadline": "2025-05-31",
+            "creator_id": 9,
+            "responsible_id": 10
+        },
+        {
+            "name": "Szervezeti Hatékonyság Elemzés",
+            "project_id": 8,
+            "description": "A szervezeti hatékonyság növelése érdekében végzett elemzések.",
+            "status": "completed",
+            "creation_date": "2023-10-01",
+            "deadline": "2024-02-28",
+            "creator_id": 11,
+            "responsible_id": 12
+        },
+        {
+            "name": "Belső Folyamatok Fejlesztése",
+            "project_id": 8,
+            "description": "A belső folyamatok optimalizálása és fejlesztése a szervezeti hatékonyság növelése érdekében.",
+            "status": "completed",
+            "creation_date": "2023-12-01",
+            "deadline": "2024-02-28",
+            "creator_id": 13,
+            "responsible_id": 14
+        },
+        {
+            "name": "AI Integrálás az Oktatásba",
+            "project_id": 9,
+            "description": "AI technológiák integrálása az oktatási rendszerbe a hatékonyság növelése érdekében.",
+            "status": "analysis",
+            "creation_date": "2024-04-01",
+            "deadline": "2025-01-31",
+            "creator_id": 15,
+            "responsible_id": 16
+        },
+        {
+            "name": "Oktatási Anyagok Fejlesztése",
+            "project_id": 9,
+            "description": "Oktatási anyagok és kurzusok fejlesztése az AI technológiák integrálásához.",
+            "status": "analysis",
+            "creation_date": "2024-06-01",
+            "deadline": "2025-01-31",
+            "creator_id": 17,
+            "responsible_id": 18
+        }
+    ]
+}
