@@ -38,7 +38,7 @@ def adan_chat_api(request):
             client = openai.Client()
 
             response = client.chat.completions.create(
-                model="gpt-4",  # Vagy gpt-3.5-turbo
+                model="gpt-3.5-turbo",  # Vagy gpt-4
                 messages=[
                     {"role": "system", "content": "Adan vagyok, az Elemző. Azért vagyok itt, hogy segítsek az AI üzleti használatában."},
                     {"role": "user", "content": user_message}
