@@ -1,6 +1,9 @@
+# file: office/apps.py
+
 from django.apps import AppConfig
 
-
 class OfficeConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
     name = 'office'
+
+    def ready(self):
+        import office.signals  # Jelentse be a signals.py fájl importálását

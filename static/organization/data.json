@@ -90,7 +90,7 @@
         }
     ],
     "employees": [
-        {"name": "Anna Kovács", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
+        {"name": "Jira Rendszer", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
         {"name": "Béla Nagy", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
         {"name": "Cecil Farkas", "squad": "Rendvédelmi robotok", "position": "Tudós"},
         {"name": "Dávid Szabó", "squad": "Katonai robotok", "position": "Katona"},
