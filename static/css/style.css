@@ -10,11 +10,11 @@ body {
 }
 
 .container {
-    max-width: 1140px;
+    max-width: 900px;
 }
 
 /* Opcionális: egyéni gomb stílus, ha szükséges */
 .navbar .btn-sm {
-    padding: 5px 15px; /* Finomított méret a kisebb gombhoz */
-    font-size: 0.875rem; /* Egy kicsit kisebb betűméret */
+    padding: 5px 17px; /* Finomított méret a kisebb gombhoz */
+    font-size: 0.7rem; /* Egy kicsit kisebb betűméret */
 }

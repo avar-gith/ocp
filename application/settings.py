@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'organization',
     'office',
     'jira',
+    'adan',
 ]
 
 MIDDLEWARE = [
