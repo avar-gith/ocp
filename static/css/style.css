@@ -1,28 +1,20 @@
-/* file: static/css/style.css */
-
-/* Alapértelmezett stílusok az oldalon */
+/* Alap stílusok */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ffffff; /* Fehér háttér */
-    color: #000000; /* Fekete szöveg szín */
+    background-color: #f8f9fa; /* Bootstrap világos háttér */
     margin: 0;
     padding: 0;
 }
 
-header, footer {
-    background-color: #f8f9fa; /* Világos szürke háttér Bootstrap alapértelmezett */
+.footer {
+    font-size: 0.9rem;
 }
 
-main {
-    padding: 20px;
+.container {
+    max-width: 1140px;
 }
 
-a {
-    color: #0d6efd; /* Bootstrap alapértelmezett kék */
-    text-decoration: none;
-}
-
-a:hover {
-    color: #0a58ca; /* Sötétebb kék hover effekt Bootstrap alapértelmezett */
-    text-decoration: underline;
+/* Opcionális: egyéni gomb stílus, ha szükséges */
+.navbar .btn-sm {
+    padding: 5px 15px; /* Finomított méret a kisebb gombhoz */
+    font-size: 0.875rem; /* Egy kicsit kisebb betűméret */
 }

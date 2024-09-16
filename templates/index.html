@@ -1,17 +1,87 @@
-<!-- file: templates/index.html -->
 {% extends 'base.html' %}
 
-{% block title %}Home - OCP Intranet{% endblock %}
-
 {% block content %}
-<div>
-    <h2>Welcome to OCP Intranet</h2>
-    <p>
-        Üdvözöljük az OCP Intranet oldalán! Itt hozzáférhet a vállalat összes fontos információjához és erőforrásához. Fedezze fel a különböző szekciókat, hogy naprakész és kapcsolatban maradjon csapatával.
-    </p>
-    <p>
-        Ha bármilyen segítségre van szüksége, kérjük, lépjen kapcsolatba az IT osztállyal, vagy tekintse meg a súgó szekciót.
-    </p>
-    <a href="#">Learn More</a>
+<div class="container mt-5">
+    <!-- Hero Section -->
+    <div class="jumbotron">
+        <h1 class="display-4">Üdvözlünk az OCP Intranet oldalán!</h1>
+        <p class="lead">Az Omni Consumer Products (OCP) hivatalos vállalati intranete, ahol minden fontos hírt és információt megtalálhatsz.</p>
+        <hr class="my-4">
+        <p>További részletekért böngészd a legújabb híreket és cikkeket!</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">További információk</a>
+    </div>
+
+    <!-- Latest News Section -->
+    <h2 class="mt-5 mb-3">Legfrissebb hírek</h2>
+    <div class="row">
+        <!-- Hírkártyák -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Hírkép">
+                <div class="card-body">
+                    <h5 class="card-title">ED-209 sorozatgyártás indul</h5>
+                    <p class="card-text">Az OCP legújabb katonai fejlesztése, az ED-209 sorozatgyártása jövő hónapban kezdődik. A projekt célja, hogy megerősítse a városi rendfenntartó erőket és csökkentse a bűnözést.</p>
+                    <a href="#" class="btn btn-primary">Részletek</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Hírkép">
+                <div class="card-body">
+                    <h5 class="card-title">Delta City fejlesztés frissítések</h5>
+                    <p class="card-text">A Delta City projekt továbbra is halad, és az új városépítési tervek már elérhetőek a nyilvánosság számára. Az építkezés várhatóan 2025-ben fejeződik be.</p>
+                    <a href="#" class="btn btn-primary">Részletek</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Hírkép">
+                <div class="card-body">
+                    <h5 class="card-title">RoboCop prototípus frissítés</h5>
+                    <p class="card-text">Az OCP mérnökei sikeresen integrálták a legújabb technológiát a RoboCop programba. A következő generációs prototípus már képes bonyolultabb feladatok ellátására is.</p>
+                    <a href="#" class="btn btn-primary">Részletek</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cikkek szekció -->
+    <h2 class="mt-5 mb-3">Friss cikkek</h2>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Az OCP stratégiája a jövőben</h5>
+                    <p class="card-text">Az OCP folyamatosan újít a technológiai szektorban, hogy vezető szerepet töltsön be a világpiacon. A jövőbeli tervek között szerepel a mesterséges intelligencia és az autonóm rendszerek fejlesztése is.</p>
+                    <a href="#" class="btn btn-secondary">Tovább olvasom</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Biztonságtechnikai fejlesztések az OCP-nél</h5>
+                    <p class="card-text">Az OCP új biztonságtechnikai rendszereket vezetett be, amelyekkel az adatbiztonság és a vállalati infrastruktúra védelme prioritást élvez. A legújabb fejlesztések magukban foglalják az intelligens védelmi rendszereket.</p>
+                    <a href="#" class="btn btn-secondary">Tovább olvasom</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Speciális vállalati hírek -->
+    <h2 class="mt-5 mb-3">Speciális hírek</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Vállalati integrációk az OCP égisze alatt</h5>
+                    <p class="card-text">Az OCP számos vállalati felvásárlást és integrációt hajt végre az elkövetkező években. Az új szinergiák célja a technológiai fejlesztések felgyorsítása és a globális piacra történő gyorsabb belépés.</p>
+                    <a href="#" class="btn btn-dark">Olvass többet</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
