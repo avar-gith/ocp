@@ -41,7 +41,7 @@ def adan_chat_api(request):
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",  # Vagy gpt-4
                 messages=[
-                    {"role": "system", "content": "Adan vagyok, az Elemző. Azért vagyok itt, hogy segítsek az AI üzleti használatában."},
+                    {"role": "system", "content": ""},
                     {"role": "user", "content": f"Adatok: {json.dumps(data_for_adan)}. Kérdés: {user_message}"}
                 ]
             )
