@@ -1,0 +1,129 @@
+{
+    "companies": [
+        {
+            "name": "OCP",
+            "description": "Az OCP egy technológiai és biztonsági vállalat, amely a legújabb technológiák és rendszerek fejlesztésére összpontosít."
+        }
+    ],
+    "teams": [
+        {
+            "name": "Robotikai fejlesztések",
+            "company": "OCP",
+            "description": "Fejlesztések a robotikai rendszerek terén, beleértve a mesterséges intelligenciát és a robotok funkcionalitását."
+        },
+        {
+            "name": "Kampánymenedzsment",
+            "company": "OCP",
+            "description": "Rendőrségi kampányok és értékesítés, valamint a robotok jogi és szabályozási ügyek kezelése."
+        }
+    ],
+    "squads": [
+        {
+            "name": "Intelligencia fejlesztés",
+            "team": "Robotikai fejlesztések",
+            "description": "Mesterséges intelligencia és gépi tanulás fejlesztése, beleértve az algoritmusokat és adatfeldolgozást."
+        },
+        {
+            "name": "Funkcionalitás fejlesztés",
+            "team": "Robotikai fejlesztések",
+            "description": "Robotok funkcionalitásának fejlesztése, új funkciók és képességek hozzáadása."
+        },
+        {
+            "name": "Rendvédelmi robotok",
+            "team": "Robotikai fejlesztések",
+            "description": "Rendvédelmi célú robotok fejlesztése, beleértve a biztonsági és felügyeleti rendszereket."
+        },
+        {
+            "name": "Katonai robotok",
+            "team": "Robotikai fejlesztések",
+            "description": "Katonai alkalmazásokra tervezett robotok fejlesztése, például taktikai és stratégiai eszközök."
+        },
+        {
+            "name": "Értékesítés és támogatás",
+            "team": "Kampánymenedzsment",
+            "description": "Robotok értékesítése és ügyféltámogatás, beleértve az ügyfélkapcsolatok kezelését."
+        },
+        {
+            "name": "Jog és szabályozás",
+            "team": "Kampánymenedzsment",
+            "description": "Jogi és szabályozási ügyek kezelése, például a robotok törvényes megfelelősége és etikai kérdések."
+        },
+        {
+            "name": "Digitális kampánymenedzsment",
+            "team": "Kampánymenedzsment",
+            "description": "Digitális kampányok kezelése és optimalizálása, beleértve a közösségi média és online hirdetések."
+        },
+        {
+            "name": "CRM fejlesztés",
+            "team": "Kampánymenedzsment",
+            "description": "CRM rendszerek fejlesztése és karbantartása, ügyfélkapcsolati folyamatok automatizálása."
+        }
+    ],
+    "positions": [
+        {
+            "name": "Fejlesztő",
+            "description": "Szoftverfejlesztő, aki új programokat és alkalmazásokat készít."
+        },
+        {
+            "name": "Tudós",
+            "description": "Kutató és tudós, aki az új technológiák és rendszerek kutatásával és fejlesztésével foglalkozik."
+        },
+        {
+            "name": "Rendőr",
+            "description": "Rendvédelmi feladatokat ellátó személy, aki a robotok biztonsági és felügyeleti rendszereit kezeli."
+        },
+        {
+            "name": "Katona",
+            "description": "Katonai feladatokat ellátó személy, aki katonai robotokkal és rendszerekkel foglalkozik."
+        },
+        {
+            "name": "Ügyfélszolgálatos",
+            "description": "Ügyfélszolgálatot ellátó személy, aki a robotok értékesítésével és ügyféltámogatással foglalkozik."
+        },
+        {
+            "name": "Jogi szakértő",
+            "description": "Jogi szakértő, aki a robotokkal kapcsolatos jogi és szabályozási ügyeket kezeli."
+        },
+        {
+            "name": "Digitális kampány szakértő",
+            "description": "Digitális kampány szakértő, aki a robotok digitális kampányait kezeli és optimalizálja."
+        }
+    ],
+    "employees": [
+        {"name": "Anna Kovács", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
+        {"name": "Béla Nagy", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
+        {"name": "Cecil Farkas", "squad": "Rendvédelmi robotok", "position": "Tudós"},
+        {"name": "Dávid Szabó", "squad": "Katonai robotok", "position": "Katona"},
+        {"name": "Erika Kádár", "squad": "Értékesítés és támogatás", "position": "Ügyfélszolgálatos"},
+        {"name": "Fruzsina Tóth", "squad": "Jog és szabályozás", "position": "Jogi szakértő"},
+        {"name": "Gábor Horváth", "squad": "Digitális kampánymenedzsment", "position": "Digitális kampány szakértő"},
+        {"name": "Zoltán Molnár", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
+        {"name": "Krisztina Szilágyi", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
+        {"name": "László Kiss", "squad": "Rendvédelmi robotok", "position": "Tudós"},
+        {"name": "Márta Nagy", "squad": "Katonai robotok", "position": "Katona"},
+        {"name": "Péter Varga", "squad": "Értékesítés és támogatás", "position": "Ügyfélszolgálatos"},
+        {"name": "Judit Papp", "squad": "Jog és szabályozás", "position": "Jogi szakértő"},
+        {"name": "István Kovács", "squad": "Digitális kampánymenedzsment", "position": "Digitális kampány szakértő"},
+        {"name": "János Farkas", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
+        {"name": "Zsuzsanna Tóth", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
+        {"name": "Gergely Szabó", "squad": "Rendvédelmi robotok", "position": "Tudós"},
+        {"name": "Andrea Kádár", "squad": "Katonai robotok", "position": "Katona"},
+        {"name": "Tamás Horváth", "squad": "Értékesítés és támogatás", "position": "Ügyfélszolgálatos"},
+        {"name": "Eszter Nagy", "squad": "Jog és szabályozás", "position": "Jogi szakértő"},
+        {"name": "Róbert Molnár", "squad": "Digitális kampánymenedzsment", "position": "Digitális kampány szakértő"},
+        {"name": "Miklós Kiss", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
+        {"name": "Lilla Papp", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
+        {"name": "Zoltán Varga", "squad": "Rendvédelmi robotok", "position": "Tudós"},
+        {"name": "Katalin Szilágyi", "squad": "Katonai robotok", "position": "Katona"},
+        {"name": "Gábor Kádár", "squad": "Értékesítés és támogatás", "position": "Ügyfélszolgálatos"},
+        {"name": "Boglárka Horváth", "squad": "Jog és szabályozás", "position": "Jogi szakértő"},
+        {"name": "Ferenc Farkas", "squad": "Digitális kampánymenedzsment", "position": "Digitális kampány szakértő"},
+        {"name": "Krisztina Kovács", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
+        {"name": "József Nagy", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
+        {"name": "Kornél Szabó", "squad": "Rendvédelmi robotok", "position": "Tudós"},
+        {"name": "Hajnalka Kádár", "squad": "Katonai robotok", "position": "Katona"},
+        {"name": "Mária Horváth", "squad": "Értékesítés és támogatás", "position": "Ügyfélszolgálatos"},
+        {"name": "Nóra Nagy", "squad": "Jog és szabályozás", "position": "Jogi szakértő"},
+        {"name": "Gábor Kiss", "squad": "Digitális kampánymenedzsment", "position": "Digitális kampány szakértő"}
+    ]
+}

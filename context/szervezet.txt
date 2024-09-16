@@ -1,0 +1,120 @@
+Vállalat: OCP (Omni Consumer Products)
+
+Történet alapja:
+Az OCP egy fiktív vállalat, amely a robotikai technológiák fejlesztésére és értékesítésére specializálódott. A vállalat két fő csoportra (Team) van bontva, mindkettő különböző célokat szolgál.
+
+1. Team 1: Robotikai Fejlesztések
+   Leírás: Ez a csapat a robotok mesterséges intelligenciájának és funkcionalitásának fejlesztésére összpontosít, valamint a rendvédelmi és katonai alkalmazásokra specializálódik.
+
+   - Squad 1: Intelligencia Fejlesztés
+     - Jake Thompson - AI Mérnök (Skill: Mesterséges intelligencia fejlesztés - 4, Skill: Gépi tanulás - 3)
+     - Maria Sanchez - Adattudós (Skill: Adatfeldolgozás - 5, Skill: Statikus modellek - 4)
+     - Ethan Harris - Algoritmus Fejlesztő (Skill: Döntéshozatali algoritmusok - 4, Skill: Neurális hálózatok - 3)
+     - Natalie Turner - Kutató Tudós (Skill: AI Képzés - 5, Skill: Kísérleti tervezés - 3)
+     - Oliver Martin - AI Szoftverfejlesztő (Skill: Szoftverfejlesztés - 4, Skill: AI Integráció - 3)
+
+   - Squad 2: Funkcionalitás Fejlesztés
+     - Chloe Walker - Robotikai Mérnök (Skill: Mechanikai tervezés - 5, Skill: Szoftver-hardware integráció - 4)
+     - Liam Robinson - Rendszerintegrátor (Skill: Rendszerintegráció - 4, Skill: Hardver-fejlesztés - 3)
+     - Sophia Lee - Beágyazott Rendszerek Fejlesztője (Skill: Beágyazott rendszerek - 5, Skill: Firmware Fejlesztés - 4)
+     - Lucas Davis - Robotikai Programozó (Skill: Robotprogramozás - 4, Skill: Algoritmusok - 3)
+     - Mia White - Hardver Mérnök (Skill: Hardver-fejlesztés - 5, Skill: Prototípus készítés - 4)
+
+   - Squad 3: Rendvédelmi Robotok
+     - Ryan Miller - Robotikai Mérnök (Skill: Rendvédelmi robotok - 5, Skill: Taktikai robotika - 4)
+     - Ava Brown - Taktikai Rendszerek Szakértője (Skill: Taktikai rendszerek - 5, Skill: Robotkatonai alkalmazások - 4)
+     - Mason Wilson - Terepi Teszt Mérnök (Skill: Terepi tesztelés - 4, Skill: Rendvédelmi alkalmazások - 3)
+     - Ella Clark - Biztonsági Robotikai Szakértő (Skill: Biztonsági robotika - 5, Skill: Rendszerbiztonság - 3)
+     - Noah Lewis - Katonai Robotikai Szakértő (Skill: Katonai robotika - 4, Skill: Hadászati tervezés - 3)
+
+   - Squad 4: Katonai Robotok
+     - Isabella Hall - Katonai Robotikai Mérnök (Skill: Katonai rendszerek - 5, Skill: Robotika alkalmazások - 4)
+     - James Allen - Harci Rendszerek Elemző (Skill: Harci rendszerek - 5, Skill: Katonai stratégiák - 4)
+     - Charlotte Young - Védekező Robotikai Szakértő (Skill: Védekező robotika - 5, Skill: Katonai alkalmazások - 3)
+     - Benjamin King - Robotikai Rendszerek Mérnök (Skill: Rendszerfejlesztés - 4, Skill: Robotikai integráció - 3)
+     - Grace Scott - Taktikai Robotikai Fejlesztő (Skill: Taktikai robotika - 4, Skill: Katonai stratégiák - 3)
+
+2. Team 2: Kampánymenedzsment
+   Leírás: Ez a csapat a robotok értékesítésére, kampányokra, valamint a jogi és szabályozási ügyekre összpontosít, és a CRM rendszerek fejlesztésével is foglalkozik.
+
+   - Squad 1: Értékesítés és Támogatás
+     - William Adams - Értékesítési Vezető (Skill: Értékesítési stratégiák - 5, Skill: Ügyfélkapcsolatok - 4)
+     - Olivia Nelson - Ügyféltámogatási Szakértő (Skill: Ügyféltámogatás - 5, Skill: Problémamegoldás - 4)
+     - Henry Carter - Értékesítési Mérnök (Skill: Műszaki értékesítés - 4, Skill: Termékbemutatók - 3)
+     - Emily Mitchell - Számlakezelő (Skill: Számlakezelés - 5, Skill: Ügyfélkapcsolatok - 4)
+     - Jack Gonzalez - Értékesítési Elemző (Skill: Értékesítési elemzés - 4, Skill: Piackutatás - 3)
+
+   - Squad 2: Jog és Szabályozás
+     - Mia Baker - Jogi Tanácsadó (Skill: Jogi tanácsadás - 5, Skill: Szabályozási ügyek - 4)
+     - Samuel Rodriguez - Szabályozási Ügyek Szakértője (Skill: Szabályozási ügyek - 5, Skill: Képviseleti tevékenységek - 4)
+     - Amelia Martin - Megfelelőségi Tisztviselő (Skill: Megfelelőség - 5, Skill: Jogi dokumentáció - 4)
+     - Daniel Thomas - Jogi Elemző (Skill: Jogi elemzés - 4, Skill: Szabályozási változások - 3)
+     - Harper Lewis - Szabályozási Megfelelőségi Szakértő (Skill: Szabályozás - 4, Skill: Jogi megfelelőség - 3)
+
+   - Squad 3: Digitális Kampánymenedzsment
+     - Ava Hall - Digitális Kampány Menedzser (Skill: Digitális kampányok - 5, Skill: Online marketing - 4)
+     - Noah White - SEO Szakértő (Skill: SEO optimalizálás - 5, Skill: Webes analitika - 4)
+     - Ella Garcia - Közösségi Média Menedzser (Skill: Közösségi média menedzsment - 5, Skill: Kampánytervezés - 4)
+     - Gabriel Young - Tartalom Stratégia Szakértő (Skill: Tartalom stratégia - 4, Skill: Online tartalom - 3)
+     - Zoe Anderson - Digitális Hirdetés Szakértő (Skill: Digitális hirdetések - 4, Skill: PPC kampányok - 3)
+
+   - Squad 4: CRM Fejlesztés
+     - Lucas Jackson - CRM Fejlesztő (Skill: CRM rendszerek - 5, Skill: Szoftverfejlesztés - 4)
+     - Lily Harris - CRM Elemző (Skill: CRM elemzés - 5, Skill: Ügyfélkapcsolati adatok - 4)
+     - Alexander Walker - Ügyfélélmény Szakértő (Skill: Ügyfélélmény - 4, Skill: CRM integráció - 3)
+     - Sophia Green - Üzleti Elemző (Skill: Üzleti elemzés - 4, Skill: CRM rendszer tervezés - 3)
+     - Ethan Martinez - CRM Támogatási Szakértő (Skill: CRM támogatás - 4, Skill: Problémamegoldás - 3)
+
+from django.db import models
+
+class Company(models.Model):
+    """Represents a company entity."""
+    name = models.CharField(max_length=255, verbose_name='Név')
+    description = models.TextField(verbose_name='Leírás')
+
+    def __str__(self):
+        return self.name
+
+class Team(models.Model):
+    """Represents a team within a company."""
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, verbose_name='Vállalat')
+    name = models.CharField(max_length=255, verbose_name='Név')
+    description = models.TextField(verbose_name='Leírás')
+
+    def __str__(self):
+        return self.name
+
+class Squad(models.Model):
+    """Represents a squad within a team."""
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, verbose_name='Csapat')
+    name = models.CharField(max_length=255, verbose_name='Név')
+    description = models.TextField(verbose_name='Leírás')
+
+    def __str__(self):
+        return self.name
+
+class Position(models.Model):
+    """Represents a position within the organization."""
+    name = models.CharField(max_length=255, verbose_name='Név')
+    description = models.TextField(verbose_name='Leírás')
+
+    def __str__(self):
+        return self.name
+
+class Employee(models.Model):
+    """Represents an employee with skills and a position within a squad."""
+    squad = models.ForeignKey(Squad, on_delete=models.CASCADE, verbose_name='Squad')
+    name = models.CharField(max_length=255, verbose_name='Név')
+    position = models.ForeignKey(Position, on_delete=models.CASCADE, verbose_name='Pozíció')
+
+    def __str__(self):
+        return self.name
+
+class Skill(models.Model):
+    """Represents a skill of an employee."""
+    name = models.CharField(max_length=255, verbose_name='Név')
+    level = models.PositiveIntegerField(default=1, verbose_name='Szint')
+    employee = models.ForeignKey(Employee, related_name='skills', on_delete=models.CASCADE, verbose_name='Kolléga')
+
+    def __str__(self):
+        return f"{self.name} (Szint: {self.level})"
