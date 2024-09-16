@@ -2,9 +2,90 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Alapértelmezett üdvözlő tartalom -->
+    <!-- Chatablak tartalom -->
     <div class="container mt-5">
-        <h1>Üdvözlünk az Adan oldalon!</h1>
-        <p>Ez egy alapértelmezett szöveg az Adan alkalmazáshoz.</p>
+        <!-- Chatablak -->
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <div class="card-header bg-primary text-white">
+                Adan (Online)
+            </div>
+            <div class="card-body" id="chat-box" style="height: 60vh; overflow-y: scroll; background-color: #f8f9fa;">
+                <!-- Itt jelennek meg az üzenetek -->
+            </div>
+            <div class="card-footer">
+                <form id="chat-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="user-input" placeholder="Írj egy üzenetet...">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit" id="send-button">
+                                <span id="send-button-text">Küldés</span>
+                                <div class="loader" id="loader" style="display:none;"></div>
+                            </button>
+                        </div>
+                    </div>              
+                </form>
+                <!-- Figyelmeztető üzenet a bot hibáiról -->
+                <div class="mt-2 text-center">
+                    <small class="text-muted">Protoípus ezért hibázhat. Ellenőrizd az eredményeket!</small>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const userInput = document.getElementById('user-input').value;
+            if (userInput === "") return;
+    
+            const chatBox = document.getElementById('chat-box');
+            const sendButton = document.getElementById('send-button');
+            const sendButtonText = document.getElementById('send-button-text');
+            const loader = document.getElementById('loader');
+    
+            // Üzenet megjelenítése a chatben
+            chatBox.innerHTML += `<div><strong>Te:</strong> ${userInput}</div>`;
+    
+            // Felirat eltávolítása és loader megjelenítése
+            sendButtonText.style.display = 'none';
+            loader.style.display = 'inline-block';
+    
+            // POST kérés a szerverre az OpenAI API hívásához
+            fetch('{% url "adan_chat_api" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({
+                    prompt: userInput
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.response) {
+                    chatBox.innerHTML += `<div><strong>Adan:</strong> ${data.response}</div>`;
+                } else {
+                    chatBox.innerHTML += `<div><strong>Hiba:</strong> ${data.error}</div>`;
+                }
+                chatBox.scrollTop = chatBox.scrollHeight;
+    
+                // Loader eltüntetése és felirat visszaállítása
+                loader.style.display = 'none';
+                sendButtonText.style.display = 'inline';
+            })
+            .catch(error => {
+                chatBox.innerHTML += `<div><strong>Hiba történt:</strong> ${error}</div>`;
+    
+                // Hiba esetén is visszaállítjuk a feliratot és eltüntetjük a loadert
+                loader.style.display = 'none';
+                sendButtonText.style.display = 'inline';
+            });
+    
+            document.getElementById('user-input').value = "";
+        });
+    </script>
+    
+    
 {% endblock %}
