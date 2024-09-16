@@ -47,9 +47,16 @@
             // Üzenet megjelenítése a chatben
             chatBox.innerHTML += `<div><strong>Te:</strong> ${userInput}</div>`;
     
-            // Felirat eltávolítása és loader megjelenítése
+            // Felirat eltüntetése és loader megjelenítése
             sendButtonText.style.display = 'none';
             loader.style.display = 'inline-block';
+    
+            // Opcionálisan adatok küldése data_for_adan néven
+            const dataForAdan = {
+                // Ide kerülnek a küldendő adatok
+                // key1: "érték1",  
+                // key2: "érték2"
+            };
     
             // POST kérés a szerverre az OpenAI API hívásához
             fetch('{% url "adan_chat_api" %}', {
@@ -59,7 +66,8 @@
                     'X-CSRFToken': '{{ csrf_token }}'
                 },
                 body: JSON.stringify({
-                    prompt: userInput
+                    prompt: userInput,
+                    data_for_adan: dataForAdan  // Adatok elküldése a szervernek
                 })
             })
             .then(response => response.json())
@@ -87,5 +95,3 @@
         });
     </script>
     
-    
-{% endblock %}
