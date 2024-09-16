@@ -15,20 +15,13 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS('Adatbázis fájl törölve.'))
 
         # Töröljük az organization alkalmazás migrációs fájljait
-        org_migrations_folder = 'organization/migrations'
-        if os.path.exists(org_migrations_folder):
-            for file in os.listdir(org_migrations_folder):
-                if file.endswith('.py') and file != '__init__.py':
-                    os.remove(os.path.join(org_migrations_folder, file))
-                    self.stdout.write(self.style.SUCCESS(f'Organization migrációs fájl törölve: {file}'))
+        self.remove_migrations('organization/migrations')
 
         # Töröljük a jira alkalmazás migrációs fájljait
-        jira_migrations_folder = 'jira/migrations'
-        if os.path.exists(jira_migrations_folder):
-            for file in os.listdir(jira_migrations_folder):
-                if file.endswith('.py') and file != '__init__.py':
-                    os.remove(os.path.join(jira_migrations_folder, file))
-                    self.stdout.write(self.style.SUCCESS(f'Jira migrációs fájl törölve: {file}'))
+        self.remove_migrations('jira/migrations')
+
+        # Töröljük az office alkalmazás migrációs fájljait
+        self.remove_migrations('office/migrations')
 
         # Előkészítjük a migrációkat
         call_command('makemigrations')
@@ -51,3 +44,13 @@ class Command(BaseCommand):
             self.stdout.write(self.style.SUCCESS('Adatok sikeresen importálva.'))
         except Exception as e:
             self.stdout.write(self.style.ERROR(f'Az adatok importálása hiba történt: {e}'))
+
+    def remove_migrations(self, folder):
+        """
+        Törli a migrációs fájlokat a megadott mappából.
+        """
+        if os.path.exists(folder):
+            for file in os.listdir(folder):
+                if file.endswith('.py') and file != '__init__.py':
+                    os.remove(os.path.join(folder, file))
+                    self.stdout.write(self.style.SUCCESS(f'Migrációs fájl törölve: {file}'))

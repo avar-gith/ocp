@@ -81,3 +81,64 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
+
+class Sprint(models.Model):
+    """
+    Modell a sprintek tárolására.
+    """
+    story = models.ForeignKey(
+        Story, 
+        on_delete=models.CASCADE, 
+        related_name='sprints', 
+        verbose_name='Történet'
+    )
+    name = models.CharField(
+        max_length=200, 
+        verbose_name='Név', 
+        blank=True
+    )  # Neve automatikusan generálva
+    created_at = models.DateField(
+        verbose_name='Létrehozás dátuma'
+    )
+
+    class Meta:
+        verbose_name = 'Sprint'
+        verbose_name_plural = 'Sprint-ek'
+
+    def save(self, *args, **kwargs):
+        if not self.name:  # Ha a név még nincs megadva
+            max_sprint_number = Sprint.objects.filter(story=self.story).count() + 1
+            self.name = f'{self.story.name} (Sprint {max_sprint_number})'
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+class TaskStatus(models.Model):
+    """
+    Modell a feladatok állapotainak tárolására egy sprint során.
+    """
+    sprint = models.ForeignKey(
+        Sprint, 
+        on_delete=models.CASCADE, 
+        related_name='task_statuses', 
+        verbose_name='Sprint'
+    )
+    task = models.ForeignKey(
+        Task, 
+        on_delete=models.CASCADE, 
+        verbose_name='Feladat'
+    )
+    status = models.CharField(
+        max_length=20, 
+        choices=Task.STATUS_CHOICES, 
+        verbose_name='Státusz'
+    )
+
+    class Meta:
+        verbose_name = 'Feladat állapota'
+        verbose_name_plural = 'Feladatok állapotai'
+        unique_together = ('sprint', 'task')  # Biztosítjuk, hogy egy feladat csak egyszer szerepeljen egy sprintben
+
+    def __str__(self):
+        return f'{self.task.name} - {self.get_status_display()}'
