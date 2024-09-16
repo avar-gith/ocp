@@ -1,0 +1,28 @@
+/* file: static/css/style.css */
+
+/* Alapértelmezett stílusok az oldalon */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* Fehér háttér */
+    color: #000000; /* Fekete szöveg szín */
+    margin: 0;
+    padding: 0;
+}
+
+header, footer {
+    background-color: #f8f9fa; /* Világos szürke háttér Bootstrap alapértelmezett */
+}
+
+main {
+    padding: 20px;
+}
+
+a {
+    color: #0d6efd; /* Bootstrap alapértelmezett kék */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0a58ca; /* Sötétebb kék hover effekt Bootstrap alapértelmezett */
+    text-decoration: underline;
+}

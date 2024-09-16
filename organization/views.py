@@ -27,3 +27,8 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 class SkillViewSet(viewsets.ModelViewSet):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
+
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'index.html')
