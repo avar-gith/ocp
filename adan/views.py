@@ -1,28 +1,9 @@
-#file: adan/views.py
-
-from django.shortcuts import render
-
-# Nézet a 'Adan' oldal megjelenítésére
-# Ez a nézet rendereli az 'adan.html' sablont, amely az alapértelmezett szöveget tartalmazza
-def adan_view(request):
-    """
-    Adan oldal betöltése. A nézet visszatéríti az 'adan.html' sablont, 
-    amely az alkalmazás alapértelmezett szövegét tartalmazza.
-    """
-    return render(request, 'adan/adan.html')
-
 # file: adan/views.py
 
 from django.shortcuts import render
-from .models import API
-
-def api_list_view(request):
-    """
-    Ez a nézet megjeleníti az összes API-t a /api/ útvonalon.
-    """
-    apis = API.objects.all()
-    return render(request, 'adan/api_list.html', {'apis': apis})
-
+from rest_framework import generics, viewsets
+from .models import Model, API, Type, Personality, LearningPath
+from .serializers import ModelSerializer, APISerializer, TypeSerializer, PersonalitySerializer, LearningPathSerializer
 import openai
 from django.conf import settings
 from django.http import JsonResponse
@@ -30,7 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 import uuid
 from datetime import datetime, timedelta
-import requests  # Ezzel hívjuk a Jira API-t
+import requests
 
 # OpenAI API kulcs beállítása a settings.py-ból
 openai.api_key = settings.OPENAI_API_KEY
@@ -38,6 +19,48 @@ openai.api_key = settings.OPENAI_API_KEY
 # Token alapú adat tárolás
 data_store = {}
 token_expiry_time = timedelta(hours=1)  # Token érvényességi ideje
+
+# Nézet az aktív modellek listázásához
+class ActiveModelListView(generics.ListAPIView):
+    queryset = Model.objects.filter(is_active=True)  # Csak az aktív modellek
+    serializer_class = ModelSerializer
+
+# ModelViewSet a modellek kezeléséhez
+class ModelViewSet(viewsets.ModelViewSet):
+    queryset = Model.objects.all()
+    serializer_class = ModelSerializer
+
+# API ViewSets
+class APISViewSet(viewsets.ModelViewSet):
+    queryset = API.objects.all()
+    serializer_class = APISerializer
+
+class TypeViewSet(viewsets.ModelViewSet):
+    queryset = Type.objects.all()
+    serializer_class = TypeSerializer
+
+class PersonalityViewSet(viewsets.ModelViewSet):
+    queryset = Personality.objects.all()
+    serializer_class = PersonalitySerializer
+
+class LearningPathViewSet(viewsets.ModelViewSet):
+    queryset = LearningPath.objects.all()
+    serializer_class = LearningPathSerializer
+
+# Nézet a 'Adan' oldal megjelenítésére
+def adan_view(request):
+    """
+    Adan oldal betöltése. A nézet visszatéríti az 'adan.html' sablont, 
+    amely az alkalmazás alapértelmezett szövegét tartalmazza.
+    """
+    return render(request, 'adan/adan.html')
+
+def api_list_view(request):
+    """
+    Ez a nézet megjeleníti az összes API-t a /api/ útvonalon.
+    """
+    apis = API.objects.all()
+    return render(request, 'adan/api_list.html', {'apis': apis})
 
 @csrf_exempt
 def generate_token(request):
@@ -98,7 +121,7 @@ def adan_chat_api(request):
 
             # OpenAI API hívása a felhasználói üzenettel és az esetlegesen tárolt adattal
             client = openai.Client()
-            response = client.chat.completions.create(
+            response = client.chat.completions.create(  # Eredeti funkció
                 model="gpt-3.5-turbo",  # Vagy gpt-4
                 messages=[
                     {"role": "system", "content": f"Adatok: {json.dumps(stored_data)}"},
@@ -115,4 +138,3 @@ def adan_chat_api(request):
             return JsonResponse({'error': str(e)}, status=500)
 
     return JsonResponse({'error': 'Hibás kérés'}, status=400)
-

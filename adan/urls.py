@@ -1,6 +1,7 @@
 # file: adan/urls.py
 from django.urls import path
 from . import views
+from django.urls import path, include
 
 # URL-ek definiálása az 'Adan' alkalmazáshoz
 urlpatterns = [

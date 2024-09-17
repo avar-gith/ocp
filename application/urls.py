@@ -15,5 +15,6 @@ urlpatterns = [
     path('api/jira/', include('jira.urls')),
     path('api/office/', include('office.urls')),
     
+    path('api/active_model/', views.ActiveModelListView.as_view(), name='active-models'),
     path('api/', views.api_list_view, name='api_list'),
 ]
