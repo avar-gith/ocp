@@ -1,0 +1,35 @@
+<div class="mail-card">
+    <div class="mail-header">
+        <span class="mail-sender" id="mail-sender"></span>
+        <span class="mail-date" id="mail-date"></span> <!-- Csak az óra:perc -->
+    </div>
+    <div class="mail-subject">
+        <span class="subject-text" id="mail-subject"></span>
+    </div>
+    <div class="mail-content">
+        <p id="mail-content"></p>
+    </div>
+</div>
+<script>
+    // Dummy adatok
+    const emailData = {
+        sender: {
+            name: "Vida Zoltán"
+        },
+        sent_at: "2024-09-17T16:20:00",
+        subject: "SOHO-SMB Digital Release Sync - 24R5 (Go-Live: 09.26.)",
+        content: "Kedves Kollégák! A SOHO-SMB Digital Journey csapat az idén is fontos projekteken dolgozik..."
+    };
+
+    // Formázzuk a dátumot
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2); // Óra:Perc formátum
+    }
+
+    // Adatok feltöltése a HTML-be
+    document.getElementById('mail-sender').textContent = emailData.sender.name;
+    document.getElementById('mail-date').textContent = formatDate(emailData.sent_at);
+    document.getElementById('mail-subject').textContent = emailData.subject;
+    document.getElementById('mail-content').textContent = emailData.content.substring(0, 100) + '...';  // Rövidített tartalom
+</script>

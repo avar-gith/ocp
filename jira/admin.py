@@ -8,7 +8,7 @@ from django.utils import timezone
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('name', 'status', 'start_date', 'end_date', 'deadline', 'creator', 'responsible')
+    list_display = ('name', 'status', 'start_date', 'deadline', 'creator', 'responsible')
     search_fields = ('name', 'description')
     list_filter = ('status', 'creator', 'responsible')
 

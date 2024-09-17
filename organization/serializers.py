@@ -26,7 +26,8 @@ class PositionSerializer(serializers.ModelSerializer):
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
-        fields = '__all__'
+        fields = ['id', 'name']  # Csak az ID, név és e-mail mezőket küldjük vissza
+
 
 class SkillSerializer(serializers.ModelSerializer):
     class Meta:

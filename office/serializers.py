@@ -1,8 +1,7 @@
-# file: office/serializers.py
-
 from rest_framework import serializers
 from .models import Email
 from organization.models import Employee
+from organization.serializers import EmployeeSerializer  # Importáljuk a részletes EmployeeSerializer-t
 
 class EmailSerializer(serializers.ModelSerializer):
     """
@@ -15,17 +14,19 @@ class EmailSerializer(serializers.ModelSerializer):
         required=True,
         label='Küldő'
     )
+    sender = EmployeeSerializer()  # A küldő részleteit teljes adatvisszaküldéssel biztosítjuk
 
     class Meta:
         model = Email
-        fields = ['sender_id', 'sent_at', 'content']
-        read_only_fields = ['sent_at']  # A 'sent_at' mező csak olvasható, nem szerkeszthető
+        fields = ['sender_id', 'sender', 'subject', 'sent_at', 'content']  # Visszaküldjük a 'subject' mezőt is
+        read_only_fields = ['sent_at']  # A 'sent_at' mező csak olvasható
 
 # file: office/serializers.py
 
 from rest_framework import serializers
-from .models import WikiPage
-from organization.models import Employee
+from .models import WikiPage  # Importáljuk a WikiPage modellt
+from organization.models import Employee  # Importáljuk az Employee modellt
+from organization.serializers import EmployeeSerializer  # Importáljuk a részletes EmployeeSerializer-t
 
 class WikiPageSerializer(serializers.ModelSerializer):
     """
@@ -38,8 +39,9 @@ class WikiPageSerializer(serializers.ModelSerializer):
         required=True,
         label='Készítő'
     )
+    created_by = EmployeeSerializer()  # A készítő részleteit is visszaküldjük
 
     class Meta:
         model = WikiPage
-        fields = ['title', 'description', 'created_by_id', 'created_at']
-        read_only_fields = ['created_at']  # A 'created_at' mező csak olvasható, nem szerkeszthető
+        fields = ['title', 'description', 'created_by_id', 'created_by', 'created_at']  # Visszaküldjük a készítőt is
+        read_only_fields = ['created_at']  # A 'created_at' mező csak olvasható

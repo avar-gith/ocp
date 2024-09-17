@@ -4,6 +4,10 @@ from django.db import models
 from django.utils import timezone
 from organization.models import Employee
 
+from django.db import models
+from django.utils import timezone
+from organization.models import Employee  # Feltételezve, hogy Employee az organization appban van
+
 class Email(models.Model):
     """
     Modell az e-mailek tárolására.
@@ -13,6 +17,10 @@ class Email(models.Model):
         on_delete=models.CASCADE, 
         related_name='sent_emails',
         verbose_name='Küldő'
+    )
+    subject = models.CharField(
+        max_length=255,  # Maximum hossz 255 karakter
+        verbose_name='Tárgy'
     )
     sent_at = models.DateTimeField(
         default=timezone.now,
@@ -26,12 +34,13 @@ class Email(models.Model):
         """
         Az e-mail szöveges reprezentációja.
         """
-        return f'Email from {self.sender} at {self.sent_at}'
+        return f'Email from {self.sender} - Subject: {self.subject} at {self.sent_at}'
     
     class Meta:
         verbose_name = 'Mail'
         verbose_name_plural = 'Mailek'
         ordering = ['-sent_at']
+
 
 class WikiPage(models.Model):
     """

@@ -3,7 +3,8 @@
 import json
 import random
 from django.core.management.base import BaseCommand
-from jira.models import Project, Story, Employee
+from jira.models import Project, Story, Employee, Task
+from datetime import datetime, timedelta
 
 class Command(BaseCommand):
     help = 'Generál feladatokat és elmenti őket a static/jira/tasks.json fájlba.'
@@ -34,19 +35,34 @@ class Command(BaseCommand):
             return
 
         for _ in range(214):  # 214 feladatot generálunk
+            project = random.choice(projects)
+            story = random.choice(stories.filter(project_id=project.id))
+            creator = random.choice(employees)
+            responsible = random.choice(employees)
+
+            # Státusz logika a történet alapján
+            if project.status == 'completed':
+                status = 'completed' if random.random() < 0.5 else 'stopped'
+            else:
+                status = random.choice(['new', 'analysis', 'implementation'])
+
+            # Dátum generálás
+            creation_date = story.creation_date + timedelta(days=random.randint(0, 30))
+            deadline = creation_date + timedelta(days=random.randint(1, 60))
+
             task_data = {
-                'project_id': random.choice(projects).id,
-                'story_id': random.choice(stories).id,
-                'creator_id': random.choice(employees).id,
-                'responsible_id': random.choice(employees).id,
+                'project_id': project.id,
+                'story_id': story.id,
+                'creator_id': creator.id,
+                'responsible_id': responsible.id,
                 'name': random.choice(tasknames),
                 'description': random.choice(taskdescriptions),
-                'status': random.choice(['new', 'analysis', 'implementation', 'stopped', 'escalation', 'completed']),
-                'creation_date': '2024-01-01',  # Példa dátum, ezt állíthatod igényeid szerint
-                'deadline': '2024-12-31'  # Példa dátum, ezt állíthatod igényeid szerint
+                'status': status,
+                'creation_date': creation_date.strftime('%Y-%m-%d'),
+                'deadline': deadline.strftime('%Y-%m-%d')
             }
             tasks.append(task_data)
-        
+
         # Feladatok mentése a JSON fájlba
         with open(tasks_file, 'w', encoding='utf-8') as f:
             json.dump({'tasks': tasks}, f, ensure_ascii=False, indent=4)

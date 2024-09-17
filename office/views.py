@@ -42,3 +42,27 @@ class WikiPageViewSet(viewsets.ModelViewSet):
     """
     queryset = WikiPage.objects.all()
     serializer_class = WikiPageSerializer
+    
+    
+# file: office/views.py
+
+from django.shortcuts import render
+from .models import Email, WikiPage
+
+def office_view(request):
+    """
+    Nézet az e-mailek és wiki oldalak megjelenítésére.
+    """
+    emails = Email.objects.all()  # Minden e-mail lekérése
+    wiki_pages = WikiPage.objects.all()  # Minden wiki oldal lekérése
+    
+    return render(request, 'office/office.html', {
+        'emails': emails,
+        'wiki_pages': wiki_pages,
+    })
+
+def organization_chart_view(request):
+    """
+    Nézet a szervezeti ábra megjelenítésére.
+    """
+    return render(request, 'office/organization_chart.html')

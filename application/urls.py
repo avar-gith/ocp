@@ -7,9 +7,11 @@ from adan import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('adan/', include('adan.urls')),
     path('', index, name='index'),
+    path('adan/', include('adan.urls')),
+    path('office/', include('office.urls')),
+    
+    path('admin/', admin.site.urls),
    
     path('api/organization/', include('organization.urls')),
     path('api/jira/', include('jira.urls')),
