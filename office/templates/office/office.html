@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="grid-container">
     <div class="grid-header">
@@ -18,58 +18,7 @@
     </div>
 </div>
 
-<script>
-    // API hívás az emailek letöltéséhez
-    async function fetchEmails() {
-        try {
-            const response = await fetch('/api/office/emails/');
-            if (!response.ok) {
-                throw new Error('Hiba történt az adatok letöltésekor');
-            }
-            const emails = await response.json();
-            renderEmails(emails);
-        } catch (error) {
-            console.error('Hiba történt:', error);
-        }
-    }
-
-    // Formázzuk a dátumot (óra:perc formátum)
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        return date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2); // Óra:Perc formátum
-    }
-
-    // Dinamikus kártyák létrehozása
-    function renderEmails(emails) {
-        const emailList = document.getElementById('email-list');
-        emailList.innerHTML = ''; // Töröljük az esetleges régi tartalmat
-
-        emails.forEach(email => {
-            // Kártya létrehozása
-            const card = document.createElement('div');
-            card.classList.add('mail-card');
-
-            // Kártya tartalma (HTML stringként beillesztve)
-            card.innerHTML = `
-                <div class="mail-header">
-                    <span class="mail-sender">${email.sender.name}</span>
-                    <span class="mail-date">${formatDate(email.sent_at)}</span>
-                </div>
-                <div class="mail-subject">
-                    <span class="subject-text">${email.subject || 'Nincs tárgy'}</span>
-                </div>
-                <div class="mail-content">
-                    <p>${email.content.substring(0, 100)}...</p>  <!-- Tartalom rövidítése -->
-                </div>
-            `;
-
-            // Hozzáadjuk a kártyát az email listához
-            emailList.appendChild(card);
-        });
-    }
-
-    // Oldal betöltésekor lefuttatjuk az email letöltést
-    window.onload = fetchEmails;
-</script>
+<!-- JavaScript fájl betöltése -->
+<script src="{% static 'js/mailhandler.js' %}"></script>
 
 {% endblock %}

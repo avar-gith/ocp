@@ -57,3 +57,63 @@ def adan_chat_api(request):
             return JsonResponse({'error': str(e)}, status=500)
 
     return JsonResponse({'error': 'Hibás kérés'}, status=400)
+
+from django.http import StreamingHttpResponse
+from django.views.decorators.csrf import csrf_exempt
+import openai
+import json
+import logging
+
+# Inicializálj egy logger-t
+logger = logging.getLogger(__name__)
+
+@csrf_exempt
+def adan_service_call(request):
+    """
+    OpenAI API lekérdezés végpont, amely adatot és promptot fogad.
+    A prompt alapján dolgozza fel az adatot, és választ generál.
+    Az eredmény streamelve kerül vissza.
+    """
+    if request.method == 'POST':
+        try:
+            # Kérési adatok beolvasása
+            data = json.loads(request.body)
+            prompt = data.get('prompt')
+            extra_data = data.get('data')
+
+            # Naplózzuk a beérkező adatokat
+            logger.info("Received prompt: %s", prompt)
+            logger.info("Received data: %s", extra_data)
+
+            # Az OpenAI API-nak küldendő üzenet létrehozása
+            messages = [
+                {"role": "system", "content": f"Extra data: {json.dumps(extra_data)}"},
+                {"role": "user", "content": prompt}
+            ]
+
+            # Válasz generálása streameléssel az OpenAI API segítségével
+            def event_stream():
+                client = openai.Client()
+                response = client.chat.completions.create(
+                    model="gpt-4o-2024-08-06",  # GPT-4 modell használata
+                    messages=messages,
+                    stream=True  # Engedélyezzük a streamelést
+                )
+
+                # Streameljük a beérkező adatokat, darabonként
+                for chunk in response:
+                    chunk_message = chunk['choices'][0]['delta'].get('content', '')
+                    if chunk_message:
+                        logger.info("Streaming chunk: %s", chunk_message)
+                        yield f"{chunk_message}"
+
+            # A streameléshez StreamingHttpResponse használata
+            return StreamingHttpResponse(event_stream(), content_type='text/plain')
+
+        except Exception as e:
+            # Hibakezelés és naplózás
+            logger.error("Error processing request: %s", str(e))
+            return JsonResponse({'error': str(e)}, status=500)
+
+    # Hibás kérés esetén válasz
+    return JsonResponse({'error': 'Hibás kérés'}, status=400)
