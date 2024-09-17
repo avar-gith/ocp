@@ -53,13 +53,14 @@
             })
             .then(response => response.json())
             .then(data => {
-                token = data.token;
+                token = data.token;  // A token elmentése
                 console.log("Token sikeresen lekérve:", token);
             })
             .catch(error => {
                 console.error("Hiba történt a token lekérésekor:", error);
             });
         };
+        
 
         document.getElementById('chat-form').addEventListener('submit', function(event) {
             event.preventDefault();
