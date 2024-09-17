@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="grid-container" style="height: 80vh; background-color: white;">
+    <div class="grid-header">
+        <button id="toggle-button" class="btn btn-warning mx-2" onclick="toggleButton()">Élet</button>
+    </div>
+    <div class="grid-sidebar" id="email-list">
+        <!-- A kártyák ide fognak kerülni dinamikusan -->
+    </div>
+    <div class="grid-main">Fő tartalom</div>
+    <div class="grid-footer">
+        <button class="btn btn-secondary mx-2">Gomb 1</button>
+        <button class="btn btn-secondary mx-2">Gomb 2</button>
+        <button class="btn btn-secondary mx-2">Gomb 3</button>
+    </div>
+</div>
+
+<input type="hidden" id="csrf_token" value="{{ csrf_token }}"/> <!-- CSRF token -->
+
+<script src="{% static 'organization/workEvent.js' %}"></script>  <!-- WorkEvent -->
+<script src="{% static 'organization/eventGenerator.js' %}"></script>  <!-- Esemény generátor -->
+<script src="{% static 'organization/life.js' %}"></script>  <!-- Élet funkciók -->
+{% endblock %}

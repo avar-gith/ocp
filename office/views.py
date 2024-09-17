@@ -66,3 +66,23 @@ def organization_chart_view(request):
     Nézet a szervezeti ábra megjelenítésére.
     """
     return render(request, 'office/organization_chart.html')
+
+# file: office/views.py
+
+from django.http import JsonResponse
+from django.core.management import call_command
+
+def generate_events_view(request):
+    if request.method == 'POST':
+        # Hívjuk meg a szükséges parancsokat
+        try:
+            call_command('generate_random_project')  # A projekt generálása
+            call_command('generate_random_sprint')   # A sprint generálása
+            call_command('generate_random_story')    # A történet generálása
+            call_command('generate_random_task')     # A feladat generálása
+
+            return JsonResponse({'status': 'success', 'message': 'Események generálva.'})
+        except Exception as e:
+            return JsonResponse({'status': 'fail', 'message': str(e)}, status=500)
+
+    return JsonResponse({'status': 'fail', 'message': 'Invalid request method.'}, status=400)

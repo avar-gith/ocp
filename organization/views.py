@@ -33,3 +33,13 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'index.html')
 
+# file: organization/views.py
+
+from django.shortcuts import render
+
+def life_view(request):
+    """
+    Nézet a 'life.html' oldalhoz.
+    """
+    return render(request, 'organization/life.html')
+
