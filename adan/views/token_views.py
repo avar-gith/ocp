@@ -52,7 +52,6 @@ def generate_token(request):
             }
 
             # Naplózzuk a lekérdezett adatokat
-            logger.info("Lekérdezett adatok: %s", json.dumps(all_data, ensure_ascii=False))
             logger.info("Token generálva: %s, lejárati idő: %s", token, expiry_time)
 
             return JsonResponse({'token': token, 'data': all_data, 'message': 'Token sikeresen generálva az adatokkal.'})

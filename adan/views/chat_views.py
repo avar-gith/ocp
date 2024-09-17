@@ -39,7 +39,7 @@ def adan_chat_api(request):
                 {"role": "system", "content": f"Adatok: {json.dumps(stored_data)}"},
                 {"role": "user", "content": user_message}
             ]
-            logger.info("Sending data to OpenAI API: %s", messages)
+            """ logger.info("Sending data to OpenAI API: %s", messages) """
 
             # OpenAI API hívása a felhasználói üzenettel
             client = openai.Client()

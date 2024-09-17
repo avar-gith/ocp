@@ -5,11 +5,11 @@
     <!-- Chatablak tartalom -->
     <div class="container mt-5">
         <!-- Chatablak -->
-        <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
             <div class="card-header bg-primary text-white">
                 Adan (Online)
             </div>
-            <div class="card-body" id="chat-box" style="height: 60vh; overflow-y: scroll; background-color: #f8f9fa;">
+            <div class="card-body" id="chat-box" style="height: 67vh; overflow-y: scroll; background-color: #f8f9fa;">
                 <!-- Itt jelennek meg az üzenetek -->
             </div>
             <div class="card-footer">
@@ -35,8 +35,12 @@
     <script>
         // Function to process text and apply formatting for words between **.
         function formatResponseText(text) {
+            // Replace line breaks with <br> tags
+            const withLineBreaks = text.replace(/\n/g, '<br>');
+            
             // Regex to find words between ** and wrap them in a span with a class
-            const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<span class="text-primary">$1</span>');
+            const formattedText = withLineBreaks.replace(/\*\*(.*?)\*\*/g, '<span class="text-primary">$1</span>');
+            
             return formattedText;
         }
 

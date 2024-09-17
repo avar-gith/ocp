@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 /* Globális outline és box-shadow kikapcsolása minden input, button és textarea elemnél */
