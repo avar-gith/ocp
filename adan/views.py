@@ -11,6 +11,18 @@ def adan_view(request):
     """
     return render(request, 'adan/adan.html')
 
+# file: adan/views.py
+
+from django.shortcuts import render
+from .models import API
+
+def api_list_view(request):
+    """
+    Ez a nézet megjeleníti az összes API-t a /api/ útvonalon.
+    """
+    apis = API.objects.all()
+    return render(request, 'adan/api_list.html', {'apis': apis})
+
 import openai
 from django.conf import settings
 from django.http import JsonResponse

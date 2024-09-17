@@ -1,0 +1,27 @@
+<!-- file: adan/templates/adan/api_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>API Lista</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>URL</th>
+                <th>Leírás</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for api in apis %}
+            <tr>
+                <td>{{ api.name }}</td>
+                <td><a href="{{ api.url }}">{{ api.url }}</a></td>
+                <td>{{ api.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

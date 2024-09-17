@@ -1,9 +1,11 @@
+# file: adan/models.py
+
 from django.db import models
 
-# API modell, amely tárolja az API-k nevét, URL-jét és leírását
+# API modell, amely tárolja az API-k nevét, teljes URL-jét és leírását
 class API(models.Model):
     name = models.CharField(max_length=200, verbose_name="API neve")
-    url = models.URLField(verbose_name="API URL")
+    url = models.URLField(verbose_name="API URL")  # URLField teljes URL-ekhez
     description = models.TextField(verbose_name="API leírása", blank=True)
 
     def __str__(self):
@@ -13,7 +15,6 @@ class API(models.Model):
         verbose_name = "API"
         verbose_name_plural = "API-k"
         ordering = ['name']
-
 
 # Modell típusa
 class Type(models.Model):
@@ -61,11 +62,18 @@ class LearningPath(models.Model):
 class Model(models.Model):
     name = models.CharField(max_length=100, verbose_name="Modell neve")  # A modell neve
     type = models.ForeignKey(Type, on_delete=models.CASCADE, verbose_name="Típus")  # Kapcsolódik a Type modellhez
-    personality = models.ForeignKey(Personality, on_delete=models.CASCADE, verbose_name="Személyiség")  # Kapcsolódik a Personality modellhez
-    learning_path = models.ForeignKey(LearningPath, on_delete=models.CASCADE, verbose_name="Tanulási út")  # Kapcsolódik a LearningPath modellhez
+    personality = models.ForeignKey(Personality, on_delete=models.CASCADE, verbose_name="Személyiség", blank=True, null=True)  # Kapcsolódik a Personality modellhez, de nem kötelező
+    learning_paths = models.ManyToManyField(LearningPath, verbose_name="Tanulási utak", blank=True)  # Kapcsolódik több LearningPath modellhez
     apis = models.ManyToManyField(API, verbose_name="Kapcsolódó API-k", blank=True)  # Kapcsolódó API-k
     is_active = models.BooleanField(default=False, verbose_name="Aktív")  # Új mező az aktív állapot jelzésére
 
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Modell"
+        verbose_name_plural = "Modellek"
+        ordering = ['name']
     def __str__(self):
         return self.name
 
