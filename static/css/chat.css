@@ -1,0 +1,88 @@
+
+/* Gomb fix szélessége */
+#send-button {
+    width: 100px; /* Állandó szélesség, módosíthatod az igényeid szerint */
+    height: 40px; /* Állandó magasság */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userBubble {
+    padding: 10px;  /* Kicsit több padding a kényelmesebb megjelenésért */
+    margin: 8px;    /* Néhány pixel margó */
+    margin-bottom: 10px;    /* Néhány pixel margó */
+    border-radius: 8px; /* Lekerekített sarkok */
+    background-color: #ffffff; /* Fehér háttér */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Kis árnyék */
+    border: 1px solid rgba(130, 130, 130, 0.5); /* Vékony piros szegély */
+}
+
+
+.aiBubble {
+    padding: 10px;  /* Kicsit több padding a kényelmesebb megjelenésért */
+    margin: 8px;    /* Néhány pixel margó */
+    margin-bottom: 10px;    /* Néhány pixel margó */
+    border-radius: 8px; /* Lekerekített sarkok */
+    background-color: #ffffff; /* Fehér háttér */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Kis árnyék */
+    border: 1px solid rgba(130, 130, 130, 0.5); /* Vékony piros szegély */
+}
+
+.errorBubble {
+    padding: 10px;  /* Kicsit több padding a kényelmesebb megjelenésért */
+    margin: 8px;    /* Néhány pixel margó */
+    margin-bottom: 10px;    /* Néhány pixel margó */
+    border-radius: 8px; /* Lekerekített sarkok */
+    background-color: #ffffff; /* Fehér háttér */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Kis árnyék */
+    border: 1px solid rgba(130, 130, 130, 0.5); /* Vékony piros szegély */
+}
+
+/* Szövegmező és gomb közötti távolság */
+#user-input {
+    margin-right: 10px;
+    height: 40px; /* A szövegmező magassága */
+}
+
+/* Küldés gomb igazítása a szövegmezővel */
+#send-button {
+    height: 40px; /* A gomb magasságát megegyezőre állítjuk a szövegmezővel */
+    padding: 0 15px; /* A gomb belső paddingje */
+    display: flex;
+    align-items: center; /* Középre igazítjuk a szöveget */
+}
+
+/* Loader stílus */
+.loader {
+    width: 24px; /* Kisebb szélesség */
+    height: 24px; /* Kisebb magasság */
+    border: 3px solid #fff; /* Háttérszín */
+    border-radius: 50%; /* Lekerekített */
+    border-top: 3px solid #ff5431; /* Bootstrap primary szín */
+    animation: spin 1s linear infinite; /* Forog */
+}
+
+/* Loader animáció */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Opcionális egyéni stílus a figyelmeztető üzenethez */
+.small.text-muted {
+    font-size: 0.85rem; /* Kicsit kisebb betűméret */
+    color: #6c757d; /* Bootstrap szürkés szín */
+    margin-top: 10px; /* További margó a szöveg és a chat ablak között */
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Finom árnyék a chat ablak körül */
+}
+
+.text-primary {
+    color: #007bff !important; /* Bootstrap alapértelmezett primary szín, de ezt lecserélheted más színre */
+    font-weight: bold !important; /* Szöveg kiemelése vastag betűtípussal */
+}
+

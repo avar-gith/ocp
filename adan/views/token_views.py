@@ -22,13 +22,7 @@ def generate_token(request):
             # API végpontok definiálása
             api_endpoints = [
                 "http://localhost:8000/api/jira/projects/",
-                "http://localhost:8000/api/jira/tasks/",
-                "http://localhost:8000/api/organization/employees/",
-                "http://localhost:8000/api/organization/teams/",
-                "http://localhost:8000/api/organization/skills/",
-                "http://localhost:8000/api/organization/positions/",
-                "http://localhost:8000/api/organization/squads/",
-                "http://localhost:8000/api/jira/stories/"
+
             ]
 
             # Lekérdezések és adatok gyűjtése
@@ -60,3 +54,12 @@ def generate_token(request):
             return JsonResponse({'error': str(e)}, status=500)
 
     return JsonResponse({'error': 'Hibás kérés'}, status=400)
+
+
+"""             "http://localhost:8000/api/jira/tasks/",
+                "http://localhost:8000/api/organization/employees/",
+                "http://localhost:8000/api/organization/teams/",
+                "http://localhost:8000/api/organization/skills/",
+                "http://localhost:8000/api/organization/positions/",
+                "http://localhost:8000/api/organization/squads/",
+                "http://localhost:8000/api/jira/stories/" """

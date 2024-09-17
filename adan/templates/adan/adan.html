@@ -78,8 +78,11 @@
             const loader = document.getElementById('loader');
     
             // Üzenet megjelenítése a chatben
-            chatBox.innerHTML += `<div><strong>Te:</strong> ${userInput}</div>`;
+            chatBox.innerHTML += `<div class="userBubble"><strong>Te:</strong> ${userInput}</div>`;
     
+            // Görgess a legújabb üzenetre
+            chatBox.scrollTop = chatBox.scrollHeight;
+            
             // Felirat eltüntetése és loader megjelenítése
             sendButtonText.style.display = 'none';
             loader.style.display = 'inline-block';
@@ -101,9 +104,9 @@
                 if (data.response) {
                     // Formázás a válaszhoz
                     const formattedResponse = formatResponseText(data.response);
-                    chatBox.innerHTML += `<div><strong>Adan:</strong> ${formattedResponse}</div>`;
+                    chatBox.innerHTML += `<div class="aiBubble"><strong>Adan:</strong> ${formattedResponse}</div>`;
                 } else {
-                    chatBox.innerHTML += `<div><strong>Hiba:</strong> ${data.error}</div>`;
+                    chatBox.innerHTML += `<div class="errorBubble"><strong>Hiba:</strong> ${data.error}</div>`;
                 }
                 chatBox.scrollTop = chatBox.scrollHeight;
     
