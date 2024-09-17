@@ -104,3 +104,8 @@ body {
 .card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Finom árnyék a chat ablak körül */
 }
+
+.text-primary {
+    color: #007bff; /* Bootstrap alapértelmezett primary szín, de ezt lecserélheted más színre */
+    font-weight: bold; /* Szöveg kiemelése vastag betűtípussal */
+}

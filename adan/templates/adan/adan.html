@@ -26,13 +26,41 @@
                 </form>
                 <!-- Figyelmeztető üzenet a bot hibáiról -->
                 <div class="mt-2 text-center">
-                    <small class="text-muted">Protoípus ezért hibázhat. Ellenőrizd az eredményeket!</small>
+                    <small class="text-muted">Prototípus, ezért hibázhat. Ellenőrizd az eredményeket!</small>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Function to process text and apply formatting for words between **.
+        function formatResponseText(text) {
+            // Regex to find words between ** and wrap them in a span with a class
+            const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<span class="text-primary">$1</span>');
+            return formattedText;
+        }
+
+        let token = null;  // A token tárolására
+
+        // Token generálása az oldal betöltésekor
+        window.onload = function() {
+            fetch('{% url "generate_token" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                token = data.token;
+                console.log("Token sikeresen lekérve:", token);
+            })
+            .catch(error => {
+                console.error("Hiba történt a token lekérésekor:", error);
+            });
+        };
+
         document.getElementById('chat-form').addEventListener('submit', function(event) {
             event.preventDefault();
     
@@ -51,13 +79,6 @@
             sendButtonText.style.display = 'none';
             loader.style.display = 'inline-block';
     
-            // Opcionálisan adatok küldése data_for_adan néven
-            const dataForAdan = {
-                // Ide kerülnek a küldendő adatok
-                // key1: "érték1",  
-                // key2: "érték2"
-            };
-    
             // POST kérés a szerverre az OpenAI API hívásához
             fetch('{% url "adan_chat_api" %}', {
                 method: 'POST',
@@ -67,13 +88,15 @@
                 },
                 body: JSON.stringify({
                     prompt: userInput,
-                    data_for_adan: dataForAdan  // Adatok elküldése a szervernek
+                    token: token  // Token elküldése, ha van
                 })
             })
             .then(response => response.json())
             .then(data => {
                 if (data.response) {
-                    chatBox.innerHTML += `<div><strong>Adan:</strong> ${data.response}</div>`;
+                    // Formázás a válaszhoz
+                    const formattedResponse = formatResponseText(data.response);
+                    chatBox.innerHTML += `<div><strong>Adan:</strong> ${formattedResponse}</div>`;
                 } else {
                     chatBox.innerHTML += `<div><strong>Hiba:</strong> ${data.error}</div>`;
                 }

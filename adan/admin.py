@@ -1,6 +1,8 @@
+# file: adan/admin.py
+
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Model, Type, Personality, LearningPath
+from .models import Model, Type, Personality, LearningPath, API
 
 # Egyedi admin osztály a Model adminisztrációhoz
 @admin.register(Model)
@@ -9,8 +11,8 @@ class ModelAdmin(admin.ModelAdmin):
     list_display = ('name', 'type', 'personality', 'learning_path', 'is_active_display')
     # Keresés a Modell neve alapján
     search_fields = ('name',)
-    # Nem szerkeszthető mezők
-    readonly_fields = ('is_active',)
+    # API-k kezelése a Model admin felületen
+    filter_horizontal = ('apis',)
     # Adminisztrációs műveletek hozzáadása
     actions = ['make_active']
 
@@ -52,6 +54,12 @@ class ModelAdmin(admin.ModelAdmin):
         self.message_user(request, "A kiválasztott Modell sikeresen aktiválva lett.")
     
     make_active.short_description = "Kiválasztott Modell aktiválása"
+
+# API adminisztráció hozzáadása
+@admin.register(API)
+class APIAdmin(admin.ModelAdmin):
+    list_display = ('name', 'url', 'description')  # API adatainak megjelenítése
+    search_fields = ('name', 'url')  # Kereshető mezők
 
 # A többi Modell adminisztrációja
 admin.site.register(Type)
