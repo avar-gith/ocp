@@ -12,33 +12,26 @@ function toggleButton() {
     if (isLifeServiceActive) {
         button.classList.remove('btn-warning');
         button.classList.add('btn-success');
-        updateSidebar('Az Élet szolgáltatás BE kapcsolva.'); // Üzenet a sidebarra
+        console.log('Az Élet szolgáltatás BE kapcsolva.'); // Üzenet a konzolra
         startImitatingTime(); // Indítsd el az idő imitálását
     } else {
         button.classList.remove('btn-success');
         button.classList.add('btn-warning');
-        updateSidebar('Az Élet szolgáltatás KI kapcsolva.'); // Üzenet a sidebarra
+        console.log('Az Élet szolgáltatás KI kapcsolva.'); // Üzenet a konzolra
         stopImitatingTime(); // Állítsd le az idő imitálását
     }
 }
 
 function startImitatingTime() {
-    updateSidebar(`Utolsó esemény időpontja: ${lastEvent.toLocaleString()}`); // Kiírjuk a kezdő időpontot
+    // console.log(`Utolsó esemény időpontja: ${lastEvent.toLocaleString()}`); // Kiírjuk a kezdő időpontot a konzolra
 
     interval = setInterval(() => {
         lastEvent.setHours(lastEvent.getHours() + 1); // Növeljük az órát
-        updateSidebar(`Utolsó esemény időpontja: ${lastEvent.toLocaleString()}`); // Frissítjük a sidebaron
+        // console.log(`Frissített időpont: ${lastEvent.toLocaleString()}`); // Frissítjük a konzolon az időt
         createWorkEvent(); // Esemény generálása
-    }, 1000); // Tick időzítő (1 másodperc)
+    }, 2000); // Tick időzítő (1 másodperc)
 }
 
 function stopImitatingTime() {
     clearInterval(interval); // Időzítő leállítása
-}
-
-function updateSidebar(message) {
-    const sidebar = document.getElementById('email-list'); // A sidebar elem
-    const newMessage = document.createElement('div'); // Új üzenet létrehozása
-    newMessage.textContent = message; // Üzenet beállítása
-    sidebar.appendChild(newMessage); // Hozzáadjuk az üzenetet a sidebarhoz
 }

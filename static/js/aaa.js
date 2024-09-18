@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let previousEmails = [];  // Korábban lekért levelek tárolása
     let isFirstFetch = true;  // Változó az első lekérés követésére
 
-    console.log("Oldal betöltve");
-
     // Függvény az AI hívásához
     async function fetchContent(promptData, extraData) {
         try {
@@ -15,7 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Prompt:", promptData);
             console.log("További adatok:", extraData);
 
-            mainContentDiv.innerHTML = "<p>AI válasz készül...</p>";  // Visszajelzés a felhasználónak
+            // Loader azonnali megjelenítése
+            mainContentDiv.innerHTML = `<div class="loader-container"><div class="loader"></div></div>`;  // Egyszerű loader megjelenítése
+
+            // Timeout hozzáadása, hogy biztos legyen, hogy a loader megjelenik
+            await new Promise(resolve => setTimeout(resolve, 100)); // Kis szünetet tart, hogy a loader renderelődjön
 
             const response = await fetch(apiUrl, {
                 method: 'POST',
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const data = await response.json();
             console.log("AI válasz érkezett:", data);
 
-            const responseText = data.response;  // Az AI válasza
+            const responseText = formatResponseText(data.response);  // Formázott AI válasz
             mainContentDiv.innerHTML = `<p>${responseText}</p>`;  // Megjelenítés a felhasználónak
         } catch (error) {
             console.error("Hiba történt az AI hívás során:", error);
@@ -44,10 +46,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+
+
+    // Formázza a választ a linebreak-ek és ** jelölések alapján
+    function formatResponseText(text) {
+        // Replace line breaks with <br> tags
+        const withLineBreaks = text.replace(/\n/g, '<br>');
+        
+        // Regex to find words between ** and wrap them in a span with a class
+        const formattedText = withLineBreaks.replace(/\*\*(.*?)\*\*/g, '<span class="text-primary">$1</span>');
+        
+        return formattedText;
+    }
+
+
     // Függvény a levelek megjelenítéséhez
     function displayEmails(emails) {
-        console.log("Levelek megjelenítése:", emails);
-        emailListDiv.innerHTML = '';  // Előző tartalom törlése
+        // console.log("Levelek megjelenítése:", emails);
+        // emailListDiv.innerHTML = '';  // Előző tartalom törlése
 
         emails.forEach(email => {
             const emailCard = `
@@ -71,14 +87,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Függvény a levelek lekérdezéséhez
     async function fetchEmails() {
         try {
-            console.log("Levelek lekérdezése...");
+            // console.log("Levelek lekérdezése...");
             const response = await fetch(emailApiUrl);
             if (!response.ok) {
                 throw new Error("Nem sikerült lekérdezni a leveleket.");
             }
 
             const emails = await response.json();
-            console.log("Lekérdezett levelek:", emails);
+            // console.log("Lekérdezett levelek:", emails);
             return emails;
         } catch (error) {
             console.error("Hiba történt a levelek lekérése során:", error);
@@ -88,20 +104,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Ellenőrzi az új leveleket, és ha talál, elküldi az AI-nek
     async function checkForNewEmails() {
-        console.log("Új levelek ellenőrzése...");
+        // console.log("Új levelek ellenőrzése...");
         const emails = await fetchEmails();
         
         // Log az összes korábban lekérdezett levélről
-        console.log("Előző levelek:", previousEmails);
+        // console.log("Előző levelek:", previousEmails);
 
         // Ellenőrzés új levelekre a korábban lekérdezett emailek alapján
         const newEmails = emails.filter(email => !previousEmails.some(prev => prev.id === email.id));
         
         // Logoljuk az új levelek halmazát
-        console.log("Új levelek (új azonosítók):", newEmails);
+        // console.log("Új levelek (új azonosítók):", newEmails);
 
         if (!isFirstFetch && newEmails.length > 0) {
-            console.log("Új levelek találhatók:", newEmails);
+            // console.log("Új levelek találhatók:", newEmails);
 
             const emailSummaries = newEmails.map(email => ({
                 subject: email.subject,

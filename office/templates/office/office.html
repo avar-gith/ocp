@@ -1,20 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
-<div class="grid-container">
+<div class="grid-container" style="height: 80vh;">
     <div class="grid-header">
-        <button class="btn btn-primary mx-2">Gomb 1</button>
-        <button class="btn btn-primary mx-2">Gomb 2</button>
-        <button class="btn btn-primary mx-2">Gomb 3</button>
+        <button id="toggle-button" class="btn btn-warning mx-2" onclick="toggleButton()">Élet</button>
     </div>
     <div class="grid-sidebar" id="email-list">
-        <!-- Dinamikusan generált email kártyák -->
-        <p>Levelek betöltése...</p>
+        <!-- A kártyák ide fognak kerülni dinamikusan -->
     </div>
-    <div class="grid-main">
-        <!-- Az AI válasz ide kerül -->
-        <p>Válasz betöltése...</p>
-    </div>
+    <div class="grid-main"></div>
+    {% comment %} <div class="loader-container"><div class="loader"></div></div> {% endcomment %}
     <div class="grid-footer">
         <button class="btn btn-secondary mx-2">Gomb 1</button>
         <button class="btn btn-secondary mx-2">Gomb 2</button>
@@ -22,10 +18,11 @@
     </div>
 </div>
 
-<!-- JavaScript fájl betöltése -->
-<script src="{% static 'js/mailscanner.js' %}"></script>
+<input type="hidden" id="csrf_token" value="{{ csrf_token }}"/> <!-- CSRF token -->
+
+<script src="{% static 'organization/life.js' %}"></script>  <!-- Life.js -->
+<script src="{% static 'organization/workEvent.js' %}"></script>  <!-- WorkEvent.js -->
+<script src="{% static 'js/mailHandler.js' %}"></script>
+<script src="{% static 'js/aiHandler.js' %}"></script>
 
 {% endblock %}
-
-
-

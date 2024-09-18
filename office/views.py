@@ -67,19 +67,26 @@ def organization_chart_view(request):
     """
     return render(request, 'office/organization_chart.html')
 
-# file: office/views.py
-
 from django.http import JsonResponse
 from django.core.management import call_command
+import json
 
 def generate_events_view(request):
     if request.method == 'POST':
-        # Hívjuk meg a szükséges parancsokat
         try:
-            call_command('generate_random_project')  # A projekt generálása
-            call_command('generate_random_sprint')   # A sprint generálása
-            call_command('generate_random_story')    # A történet generálása
-            call_command('generate_random_task')     # A feladat generálása
+            # Parsoljuk a kérés tartalmát, feltételezve, hogy JSON formátumban küldjük az eseményeket
+            data = json.loads(request.body)
+            events = data.get('events', [])
+
+            # Csak azokat a parancsokat hívjuk meg, amelyek az események között szerepelnek
+            if 'Projekt' in events:
+                call_command('generate_random_project')  # A projekt generálása
+            if 'Sprint' in events:
+                call_command('generate_random_sprint')   # A sprint generálása
+            if 'Story' in events:
+                call_command('generate_random_story')    # A történet generálása
+            if 'Task' in events:
+                call_command('generate_random_task')     # A feladat generálása
 
             return JsonResponse({'status': 'success', 'message': 'Események generálva.'})
         except Exception as e:

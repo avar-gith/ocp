@@ -1,57 +1,64 @@
-// file: organization/static/organization/workEvent.js
-
 const eventTypes = [
-    'Projekt',
-    'Sprint',
-    'Történet',
-    'Feladat',
-    'Levél'
+    { type: 'Projekt', chance: 0.1 },  // 20% esély
+    { type: 'Sprint', chance: 0.15 },   // 10% esély
+    { type: 'Story', chance: 0.18 },   // 5% esély
+    { type: 'Task', chance: 0.45 },     // 10% esély
 ];
 
-/**
- * WorkEvent generálása.
- */
-// file: organization/static/organization/workEvent.js
+// Hibakeresési mód manuális bekapcsolása (true, ha logolni szeretnéd)
+const debugMode = true;
 
+/**
+ * WorkEvent generálása valószínűség alapján.
+ */
 function createWorkEvent() {
-    const randomIndex = Math.floor(Math.random() * eventTypes.length); // Véletlenszerű index
-    const eventType = eventTypes[randomIndex];
-    const eventMessage = `${eventType} keletkezett: ${new Date().toLocaleString()}`;
-    
-    updateSidebar(eventMessage); // Kiírja a sidebarra az eseményt
+    const eventsToGenerate = [];
 
-    // Események generálása a backend API-n keresztül
-    const csrfToken = document.getElementById('csrf_token').value; // CSRF token
-
-    fetch('/office/generate-events/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': csrfToken // CSRF token hozzáadása a kéréshez
-        },
-        body: JSON.stringify({}) // További adatok küldése, ha szükséges
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            console.log('Események sikeresen generálva.');
-        } else {
-            console.error('Hiba történt az események generálásakor:', data.message);
+    // Minden eseménytípusra dobunk egy véletlenszámot, és az esély alapján döntünk
+    eventTypes.forEach(event => {
+        const randomChance = Math.random(); // 0 és 1 közötti véletlenszám
+        
+        // Ha hibakeresési mód bekapcsolva, logoljuk a véletlenszámokat
+        if (debugMode) {
+            console.log(`Véletlen szám a ${event.type} esetén: ${randomChance}, esély: ${event.chance}`);
         }
-    })
-    .catch((error) => {
-        console.error('Hiba:', error);
+
+        if (randomChance <= event.chance) {
+            const eventMessage = `${event.type} keletkezett: ${new Date().toLocaleString()}`;
+            console.log(eventMessage);  // Kiírjuk a konzolra
+            eventsToGenerate.push(event.type); // Hozzáadjuk az eseményt a generálandó listához
+        }
     });
-}
 
+    // Ha van legalább egy esemény, amit generálni kell, akkor küldjük el az API-nak
+    if (eventsToGenerate.length > 0) {
+        const csrfToken = document.getElementById('csrf_token').value; // CSRF token
 
-/**
- * Frissíti a sidebar tartalmát.
- * @param {string} message - Az üzenet, amit a sidebar-ba kell írni.
- */
-function updateSidebar(message) {
-    const sidebar = document.getElementById('email-list'); // A sidebar elem
-    const newMessage = document.createElement('div'); // Új üzenet létrehozása
-    newMessage.textContent = message; // Üzenet beállítása
-    sidebar.appendChild(newMessage); // Hozzáadjuk az üzenetet a sidebarhoz
+        fetch('/office/generate-events/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken // CSRF token hozzáadása a kéréshez
+            },
+            body: JSON.stringify({ events: eventsToGenerate }) // Generált események küldése
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Hálózati hiba történt, nem sikerült a kérés.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                console.log('Események sikeresen generálva.');
+            } else {
+                console.error('Hiba történt az események generálásakor:', data.message);
+            }
+        })
+        .catch((error) => {
+            console.error('Hiba:', error);
+        });
+    } else {
+        console.log('Nem generálódott új esemény.');
+    }
 }

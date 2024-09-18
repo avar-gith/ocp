@@ -1,6 +1,5 @@
 .full-screen-container {
-    background-color: white;
-    border: 1px solid lightgrey;
+
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     height: 100vh; /* teljes képernyőmagasság */
     padding: 20px;
@@ -20,21 +19,25 @@
 .grid-header {
     grid-column: 1 / span 2; /* A fejléc két oszlopon keresztül terjed */
     background-color: white;
-    border: 1px solid red;
     display: flex;
     align-items: center; /* Vertikális középre igazítás */
     padding-left: 10px; /* Hézag a bal oldalon a gombokhoz */
+    
+    border-radius: 8px; /* Lekerekített élek */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék */
 }
+
 
 .grid-sidebar {
     grid-row: 2 / span 2; /* Az oldalsó menü a második és harmadik sorban helyezkedik el, teljes magasságban */
     background-color: white;
-    border: 1px solid rgb(182, 182, 182);
-    
-    /* Görgetősáv beállítások */
+
+
     overflow-y: auto; /* Engedélyezzük a függőleges görgetést */
     max-height: 90vh; /* Az oldalsáv magasságát korlátozzuk a képernyő 90%-ára */
     padding-right: 5px; /* Jobb oldali padding a görgetősávnak */
+    border-radius: 8px; /* Lekerekített élek */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék */
 }
 
 .grid-sidebar::-webkit-scrollbar {
@@ -54,14 +57,17 @@
 .grid-main {
     grid-row: 2 / 3; /* Fő tartalom a második sorban a jobb oldalon */
     background-color: white;
-    border: 1px solid rgb(182, 182, 182);
+    border-radius: 8px; /* Lekerekített élek */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék */
     height: 100%; /* A fő tartalom kitölti a rendelkezésre álló helyet */
+    padding: 20px;
 }
 
 .grid-footer {
     grid-row: 3 / 4; /* Az alsó doboz a harmadik sorban a fő tartalom alatt */
     background-color: white;
-    border: 1px solid rgb(182, 182, 182);
+    border-radius: 8px; /* Lekerekített élek */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék */
     display: flex;
     align-items: center; /* Vertikális középre igazítás */
     padding-left: 10px; /* Hézag a bal oldalon a gombokhoz */
@@ -114,3 +120,40 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+/* Szülő elem a loader középre helyezéséhez */
+.oloader-container {
+    display: flex;
+    justify-content: center;  /* Horizontális középre igazítás */
+    align-items: center;      /* Vertikális középre igazítás */
+    height: 100%;             /* A szülő elem magasságát használja */
+    width: 100%;              /* A szülő elem szélességét használja */
+}
+/* HTML: <div class="loader"></div> */
+.oloader {
+    height: 40px;
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #007bff;
+    box-shadow: 0 0 0 0 #007bff;
+    animation: l2 1.5s infinite linear;
+    position: relative;
+    border-top: 3px dotted #f00000;
+  }
+  .oloader:before,
+  .oloader:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 #0004;
+    animation: inherit;
+    animation-delay: -0.5s;
+  }
+  .oloader:after {
+    animation-delay: -1s;
+  }
+  @keyframes l2 {
+      100% {box-shadow: 0 0 0 40px #0000}
+  }
