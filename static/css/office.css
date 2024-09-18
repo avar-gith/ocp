@@ -61,6 +61,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék */
     height: 100%; /* A fő tartalom kitölti a rendelkezésre álló helyet */
     padding: 20px;
+
 }
 
 .grid-footer {
@@ -70,7 +71,6 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék */
     display: flex;
     align-items: center; /* Vertikális középre igazítás */
-    padding-left: 10px; /* Hézag a bal oldalon a gombokhoz */
 }
 
 .mail-card {
@@ -111,6 +111,10 @@
 
 .subject-text {
     font-size: 0.6em; /* Kisebb betűméret */
+}
+
+#toggle-button {
+    width: 100px;  /* Állítsd be a kívánt szélességet */
 }
 
 .mail-content {
@@ -159,3 +163,13 @@
       transform: rotate(360deg);
     }
   }
+
+  #custom-textarea {
+    width: 100%; /* A textarea teljes szélességre való beállítása */
+    height: 80%; /* Maximális magasság */
+    resize: none; /* A szövegmező nem átméretezhető */
+    overflow-y: auto; /* Gördítősáv hosszabb szövegek esetén */
+    margin: 5px;
+    padding: 5px; /* Belső padding a szebb megjelenéshez */
+    border-radius: 8px; /* Lekerekített sarkok */
+}

@@ -97,12 +97,23 @@ document.addEventListener("DOMContentLoaded", function () {
             const emailSummaries = newEmails.map(email => ({
                 subject: email.subject,
                 sender: email.sender.name,
-                snippet: email.snippet
+                content: email.content
             }));
 
-            const prompt = "Kérlek röviden foglald össze a történteket a levelek alapján.";
-            console.log("AI-nek elküldött adatok:", emailSummaries);
-            fetchContent(prompt, emailSummaries);  // Az új levelek továbbküldése az AI-nek
+            // Szövegmező értékének lekérése
+            const customTextarea = document.getElementById("custom-textarea");
+            const customPrompt = customTextarea.value.trim();  // Beírt szöveg
+
+            // Ellenőrizzük, hogy a szövegmező üres-e, ha igen, használjuk a placeholdert
+            let prompt = "";
+            if (customPrompt) {
+                prompt = customPrompt;  // Ha van érték a szövegmezőben, azt használjuk
+            } else {
+                prompt = customTextarea.placeholder;  // Ha üres, akkor a placeholder értéket küldjük
+            }
+
+            // További logika az API-híváshoz (prompt használatával)
+            fetchContent(prompt, emailSummaries);
         }
 
         previousEmails = emails;  // Frissítjük az előző leveleket
@@ -111,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 20 másodpercenként ellenőrzi a leveleket és elemzi az új leveleket
     setInterval(() => {
+        console.log("...");
         aiHandler();
-    }, 20000);  // 20 másodperc
+    }, 10000);  // 20 másodperc
 });
