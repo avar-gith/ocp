@@ -129,31 +129,33 @@
     height: 100%;             /* A szülő elem magasságát használja */
     width: 100%;              /* A szülő elem szélességét használja */
 }
+
 /* HTML: <div class="loader"></div> */
 .oloader {
-    height: 40px;
-    width: 40px;
+    width: 50px;
     aspect-ratio: 1;
+    box-shadow: 0 0 0 3px #007bff inset;
     border-radius: 50%;
-    background: #007bff;
-    box-shadow: 0 0 0 0 #007bff;
-    animation: l2 1.5s infinite linear;
-    position: relative;
-    border-top: 3px dotted #f00000;
+    animation: l11 7s infinite;
   }
   .oloader:before,
   .oloader:after {
     content: "";
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    box-shadow: 0 0 0 0 #0004;
-    animation: inherit;
-    animation-delay: -0.5s;
+    top: calc(100% + 3px);
+    left: calc(50% - 12.5px);
+    box-shadow: inherit;
+    width: 25px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    transform-origin: 50% -28px;
+    animation: l11 1.5s infinite;
   }
   .oloader:after {
-    animation-delay: -1s;
+    animation-delay: -0.75s;
   }
-  @keyframes l2 {
-      100% {box-shadow: 0 0 0 40px #0000}
+  @keyframes l11 {
+    100% {
+      transform: rotate(360deg);
+    }
   }

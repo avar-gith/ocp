@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Loader azonnali megjelenítése
             mainContentDiv.innerHTML = `
-                <div class="loader-container">
-                    <div class="loader"></div>
+                <div class="oloader-container">
+                    <div class="oloader"></div>
                 </div>
             `;  // Egyszerű loader megjelenítése a mező közepén
             
