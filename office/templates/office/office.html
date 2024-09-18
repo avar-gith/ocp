@@ -8,9 +8,13 @@
         <button class="btn btn-primary mx-2">Gomb 3</button>
     </div>
     <div class="grid-sidebar" id="email-list">
-        <!-- A kártyák ide fognak kerülni dinamikusan -->
+        <!-- Dinamikusan generált email kártyák -->
+        <p>Levelek betöltése...</p>
     </div>
-    <div class="grid-main">Fő tartalom</div>
+    <div class="grid-main">
+        <!-- Az AI válasz ide kerül -->
+        <p>Válasz betöltése...</p>
+    </div>
     <div class="grid-footer">
         <button class="btn btn-secondary mx-2">Gomb 1</button>
         <button class="btn btn-secondary mx-2">Gomb 2</button>
@@ -19,6 +23,9 @@
 </div>
 
 <!-- JavaScript fájl betöltése -->
-<script src="{% static 'js/mailhandler.js' %}"></script>
+<script src="{% static 'js/mailscanner.js' %}"></script>
 
 {% endblock %}
+
+
+

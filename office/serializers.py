@@ -18,8 +18,8 @@ class EmailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Email
-        fields = ['sender_id', 'sender', 'subject', 'sent_at', 'content']  # Visszaküldjük a 'subject' mezőt is
-        read_only_fields = ['sent_at']  # A 'sent_at' mező csak olvasható
+        fields = ['id', 'sender_id', 'sender', 'subject', 'sent_at', 'content']  # Hozzáadjuk az 'id'-t
+        read_only_fields = ['id', 'sent_at']  # Az 'id' és 'sent_at' csak olvasható
 
 # file: office/serializers.py
 
