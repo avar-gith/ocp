@@ -1,0 +1,163 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "name": "Jira Rendszer"
+        },
+        {
+            "id": 2,
+            "name": "Nagy Béla"
+        }
+    ],
+    "teams": [
+        {
+            "id": 1,
+            "name": "Robotikai fejlesztések",
+            "description": "Fejlesztések a robotikai rendszerek terén, beleértve a mesterséges intelligenciát és a robotok funkcionalitását.",
+            "company": 1
+        },
+        {
+            "id": 2,
+            "name": "Kampánymenedzsment",
+            "description": "Rendőrségi kampányok és értékesítés, valamint a robotok jogi és szabályozási ügyek kezelése.",
+            "company": 1
+        }
+    ],
+    "emails": [
+        {
+            "id": 242,
+            "sender": {
+                "id": 5,
+                "name": "Baumgartner Erika"
+            },
+            "subject": "teszt",
+            "sent_at": "2024-09-19T00:06:47.747513+02:00",
+            "content": "teszt"
+        },
+        {
+            "id": 241,
+            "sender": {
+                "id": 31,
+                "name": "Szabó Kornél"
+            },
+            "subject": "Feladat létrehozva: Automatizált tesztek beállítása",
+            "sent_at": "2024-09-18T23:14:37.844617+02:00",
+            "content": "A feladat létrehozva: Automatizált tesztek beállítása\nFelelős: Illés Márton (Kutató tiszt)\nHatáridő: 2024-08-30\nLeírás: Írj átfogó egységteszteket az új funkciókhoz."
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "name": "UI hibák javítása",
+            "description": "Tedd lehetővé az alkalmazás automatikus frissítéseit.",
+            "status": "new",
+            "status_display": "Új igény",
+            "creation_date": "2024-03-23",
+            "deadline": "2024-04-23",
+            "creator": 22,
+            "responsible": 9,
+            "project": 6,
+            "story": 11
+        },
+        {
+            "id": 2,
+            "name": "Hibaelhárítási útmutató készítése",
+            "description": "Javítsd a keresési funkciót, hogy tartalmazzon fejlett szűrőket.",
+            "status": "analysis",
+            "status_display": "Elemzés",
+            "creation_date": "2024-06-19",
+            "deadline": "2024-06-28",
+            "creator": 23,
+            "responsible": 4,
+            "project": 4,
+            "story": 8
+        }
+    ],
+    "skills": [],
+    "positions": [
+        {
+            "id": 1,
+            "name": "Fejlesztő",
+            "description": "Szoftverfejlesztő, aki új programokat és alkalmazásokat készít."
+        },
+        {
+            "id": 2,
+            "name": "Tudós",
+            "description": "Kutató és tudós, aki az új technológiák és rendszerek kutatásával és fejlesztésével foglalkozik."
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "name": "Szervezeti Hatékonyság Növelése",
+            "description": "A szervezet belső folyamatai és hatékonysága növelésének fejlesztése.",
+            "status": "completed",
+            "status_display": "Kész",
+            "start_date": "2022-09-01",
+            "end_date": "2023-01-10",
+            "deadline": "2023-01-10",
+            "creator": 15,
+            "responsible": 16
+        },
+        {
+            "id": 2,
+            "name": "ED-209 Közpép Afrikai megrendelés kezelése",
+            "description": "ED-209 robotok fejlesztése és telepítése az afrikai piacon.",
+            "status": "implementation",
+            "status_display": "Megvalósítás",
+            "start_date": "2024-01-15",
+            "end_date": "2025-03-15",
+            "deadline": "2025-03-15",
+            "creator": 11,
+            "responsible": 6
+        }
+    ],
+    "squads": [
+        {
+            "id": 1,
+            "name": "Intelligencia fejlesztés",
+            "description": "Mesterséges intelligencia és gépi tanulás fejlesztése, beleértve az algoritmusokat és adatfeldolgozást.",
+            "team": 1
+        },
+        {
+            "id": 2,
+            "name": "Funkcionalitás fejlesztés",
+            "description": "Robotok funkcionalitásának fejlesztése, új funkciók és képességek hozzáadása.",
+            "team": 1
+        }
+    ],
+    "stories": [
+        {
+            "id": 1,
+            "name": "AI Algoritmus Fejlesztés",
+            "description": "Fejlesztések az AI algoritmusok terén, a RoboCop 2.0 projekt keretében.",
+            "status": "implementation",
+            "status_display": "Megvalósítás",
+            "creation_date": "2024-01-15",
+            "deadline": "2025-06-30",
+            "creator": 1,
+            "responsible": 2,
+            "project": 1
+        },
+        {
+            "id": 2,
+            "name": "Taktikai Képességek Tesztelése",
+            "description": "Az új taktikai képességek tesztelése és finomhangolása.",
+            "status": "new",
+            "status_display": "Új igény",
+            "creation_date": "2024-02-10",
+            "deadline": "2025-06-30",
+            "creator": 3,
+            "responsible": 4,
+            "project": 1
+        }
+    ],
+    "companies": [
+        {
+            "id": 1,
+            "name": "OCP",
+            "description": "Az OCP egy technológiai és biztonsági vállalat, amely a legújabb technológiák és rendszerek fejlesztésére összpontosít."
+        }
+    ],
+    "wikipages": []
+}

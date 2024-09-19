@@ -33,7 +33,7 @@ input:focus, button:focus, textarea:focus {
 
 /* Webkit-alapú böngészők gördítősávjának stílusa */
 html::-webkit-scrollbar {
-    width: 4px; /* Még vékonyabb szélesség a vertikális gördítősávnak */
+    width: 2px; /* Még vékonyabb szélesség a vertikális gördítősávnak */
     margin-right: 3px; /* Távolság a jobb oldaltól */
 }
 
@@ -45,6 +45,7 @@ html::-webkit-scrollbar-thumb {
     background-color: #007bff; /* Bootstrap primary szín */
     border-radius: 10px; /* Lekerekített állapotjelző */
     margin-right: 3px; /* Távolság az oldal szélétől */
+    width: 2px;
 }
 
 /* Firefox gördítősáv stílus */

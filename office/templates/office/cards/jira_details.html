@@ -1,0 +1,19 @@
+<!-- file: office/templates/office/cards/jira_details.html -->
+<div class="details-view-container">
+    <!-- Részletes nézet a projekt, történet vagy feladat számára -->
+    <div class="details-header">
+        <h2 id="detail-name" class="text-primary"></h2> <!-- Felelős neve kék színnel -->
+    </div>
+    <div class="details-body">
+        <p><strong>Felelős:</strong> <span id="detail-responsible" class="text-primary"></span></p>
+        <p><strong>Státusz:</strong> <span id="detail-status"></span></p>
+
+        <div class="detail-description-container">
+            <label><strong>Leírás:</strong></label>
+            <div id="detail-description" class="detail-description"></div> <!-- Szöveges tartalom, textarea hatású -->
+        </div>
+
+        <p class="text-muted small"><strong>Határidő:</strong> <span id="detail-deadline"></span></p>
+        <p class="text-muted small"><strong>Igénylő:</strong> <span id="detail-creator"></span></p>
+    </div>
+</div>

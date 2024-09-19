@@ -1,0 +1,14 @@
+<!-- file: office/templates/office/cards/task_card.html -->
+<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+    <div class="card-header">Feladat</div>
+    <div class="card-body">
+        <h5 class="card-title">Feladat Név: {{ task.name }}</h5>
+        <p class="card-text">
+            <strong>Felelős:</strong> {{ task.responsible.name }}<br>
+            <strong>Státusz:</strong> {{ task.get_status_display }}<br>
+            <strong>Létrehozási dátum:</strong> {{ task.creation_date|date:"Y-m-d" }}<br>
+            <strong>Határidő:</strong> {{ task.deadline|date:"Y-m-d" }}<br>
+            <strong>Leírás:</strong> {{ task.description }}
+        </p>
+    </div>
+</div>

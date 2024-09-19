@@ -1,0 +1,41 @@
+<!-- file: templates/office/jira.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="jira_container">
+    <div class="jira_row">
+        <!-- Bal oldali keret (Ügyek) -->
+        <div class="jira_box jira_box_left">
+            <!-- Loader amíg az adatok betöltődnek -->
+            <div class="oloader-container">
+                <div class="oloader"></div> <!-- Bal oldali jira loader -->
+            </div>
+
+            <!-- Kártyák megjelenítése betöltés után -->
+            <div class="details-content" style="display: none;">
+                <div class="project-cards">
+                    <!-- Itt jelennek meg a valós projektek, történetek és feladatok -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Jobb oldali keret (Részletek) -->
+        <div class="jira_box jira_box_right">
+            <!-- Felső 50% - Részletek -->
+            <div class="details-view" style="height: 50%;">
+                <h2>Részletek</h2>
+                <div id="details-content"></div>
+            </div>
+
+            <!-- Alsó 40% - Jövőbeli tartalomhoz -->
+            <div class="future-content" style="height: 40%; border-top: 1px solid #ccc;">
+                <!-- Jelenleg üres, később tartalom kerül ide -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript modulok betöltése -->
+<script type="module" src="{% static 'js/jira.js' %}"></script>
+{% endblock %}

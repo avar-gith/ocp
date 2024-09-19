@@ -1,0 +1,14 @@
+<!-- file: office/templates/office/cards/project_card.html -->
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Projekt</div>
+    <div class="card-body">
+        <h5 class="card-title">Projekt Név: {{ project.name }}</h5>
+        <p class="card-text">
+            <strong>Felelős:</strong> {{ project.responsible.name }}<br>
+            <strong>Státusz:</strong> {{ project.get_status_display }}<br>
+            <strong>Kezdési dátum:</strong> {{ project.start_date|date:"Y-m-d" }}<br>
+            <strong>Határidő:</strong> {{ project.deadline|date:"Y-m-d" }}<br>
+            <strong>Leírás:</strong> {{ project.description }}
+        </p>
+    </div>
+</div>

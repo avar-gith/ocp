@@ -1,0 +1,13 @@
+<!-- file: office/templates/office/cards/story_card.html -->
+<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+    <div class="card-header">Történet</div>
+    <div class="card-body">
+        <h5 class="card-title">Történet Név: {{ story.name }}</h5>
+        <p class="card-text">
+            <strong>Felelős:</strong> {{ story.responsible.name }}<br>
+            <strong>Státusz:</strong> {{ story.get_status_display }}<br>
+            <strong>Határidő:</strong> {{ story.deadline|date:"Y-m-d" }}<br>
+            <strong>Leírás:</strong> {{ story.description }}
+        </p>
+    </div>
+</div>

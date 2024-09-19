@@ -61,12 +61,6 @@ def office_view(request):
         'wiki_pages': wiki_pages,
     })
 
-def organization_chart_view(request):
-    """
-    Nézet a szervezeti ábra megjelenítésére.
-    """
-    return render(request, 'office/organization_chart.html')
-
 from django.http import JsonResponse
 from django.core.management import call_command
 import json
@@ -93,3 +87,26 @@ def generate_events_view(request):
             return JsonResponse({'status': 'fail', 'message': str(e)}, status=500)
 
     return JsonResponse({'status': 'fail', 'message': 'Invalid request method.'}, status=400)
+
+# file: office/views.py
+
+from django.shortcuts import render
+from organization.models import Company
+
+def organization_chart(request):
+    # Lekérdezzük az összes vállalatot és a kapcsolódó csapatokat, squadokat, és kollégákat
+    companies = Company.objects.prefetch_related('team_set__squad_set__employee_set')
+
+    context = {
+        'companies': companies
+    }
+
+    return render(request, 'office/organization_chart.html', context)
+
+
+# file: office/views.py
+
+from django.shortcuts import render
+
+def jira_view(request):
+    return render(request, 'office/jira.html')

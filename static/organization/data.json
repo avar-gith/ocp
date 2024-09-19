@@ -69,20 +69,32 @@
             "description": "Kutató és tudós, aki az új technológiák és rendszerek kutatásával és fejlesztésével foglalkozik."
         },
         {
-            "name": "Rendőr",
+            "name": "Rendvédelmi szakértő",
             "description": "Rendvédelmi feladatokat ellátó személy, aki a robotok biztonsági és felügyeleti rendszereit kezeli."
         },
         {
-            "name": "Katona",
-            "description": "Katonai feladatokat ellátó személy, aki katonai robotokkal és rendszerekkel foglalkozik."
+            "name": "Katonai szakértő",
+            "description": "Katonai feladatokat ellátó személy, aki Katonai robotokkal és rendszerekkel foglalkozik."
         },
         {
-            "name": "Ügyfélszolgálatos",
+            "name": "Ügyfélmenedzser",
             "description": "Ügyfélszolgálatot ellátó személy, aki a robotok értékesítésével és ügyféltámogatással foglalkozik."
         },
         {
             "name": "Jogi szakértő",
             "description": "Jogi szakértő, aki a robotokkal kapcsolatos jogi és szabályozási ügyeket kezeli."
+        },
+        {
+            "name": "Mérnök",
+            "description": "Műszaki mérnök, aki a mérnöki kutatásokért és fejlesztésekért velelős."
+        },
+        {
+            "name": "Vezető",
+            "description": "Felhatalmazott vezető, aki a csapat céljaiért, határidő- és erőforrásmenedzsmentjéért felelős."
+        },
+        {
+            "name": "Ügyvéd",
+            "description": "Ügyvéd, aki a cég jogi képviseletét és a projektek jogi támogatását látja el."
         },
         {
             "name": "Digitális kampány szakértő",
@@ -91,39 +103,43 @@
     ],
     "employees": [
         {"name": "Jira Rendszer", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
-        {"name": "Nagy Béla", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
-        {"name": "Dr. Farkas Cecil", "squad": "Rendvédelmi robotok", "position": "Tudós"},
-        {"name": "Par. Szabó Dávid", "squad": "Katonai robotok", "position": "Katona"},
-        {"name": "Kádár Erika", "squad": "Értékesítés és támogatás", "position": "Ügyfélszolgálatos"},
-        {"name": "Tóth Fruzsina", "squad": "Jog és szabályozás", "position": "Jogi szakértő"},
-        {"name": "Horváth Gábor", "squad": "Digitális kampánymenedzsment", "position": "Digitális kampány szakértő"},
-        {"name": "Molnár Zoltán", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
+        {"name": "Nagy Béla", "squad": "Funkcionalitás fejlesztés", "position": "Vezető"},
+        {"name": "Farkas Cecil", "squad": "Rendvédelmi robotok", "position": "Vezető"},
+        {"name": "Szabó Dávid (Parancsnok)", "squad": "Katonai robotok", "position": "Vezető"},
+        {"name": "Baumgartner Erika", "squad": "Értékesítés és támogatás", "position": "Vezető"},
+        {"name": "Tóth Fruzsina", "squad": "Jog és szabályozás", "position": "Vezető"},
+        {"name": "Imreh Sándor", "squad": "Digitális kampánymenedzsment", "position": "Vezető"},
+        {"name": "Molnár Zoltán", "squad": "Intelligencia fejlesztés", "position": "Vezető"},
         {"name": "Szilágyi Krisztina", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
         {"name": "Dr. Kiss László", "squad": "Rendvédelmi robotok", "position": "Tudós"},
-        {"name": "Ezr. Nagy Márta", "squad": "Katonai robotok", "position": "Katona"},
-        {"name": "Varga Péter", "squad": "Értékesítés és támogatás", "position": "Ügyfélszolgálatos"},
+        {"name": "Nagy Márta (Ezredes)", "squad": "Katonai robotok", "position": "Katonai szakértő"},
+        {"name": "Varga Péter", "squad": "Értékesítés és támogatás", "position": "Ügyfélmenedzser"},
         {"name": "Papp Judit", "squad": "Jog és szabályozás", "position": "Jogi szakértő"},
-        {"name": "Kovács István", "squad": "Digitális kampánymenedzsment", "position": "Digitális kampány szakértő"},
+        {"name": "Kovács István (Bűnügyi Szóvivő)", "squad": "Digitális kampánymenedzsment", "position": "Rendvédelmi szakértő"},
         {"name": "Farkas János", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
         {"name": "Tóth Zsuzsanna", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
-        {"name": "Dr. Szabó Gergely", "squad": "Rendvédelmi robotok", "position": "Tudós"},
-        {"name": "Kádár Andrea", "squad": "Katonai robotok", "position": "Katona"},
-        {"name": "Horváth Tamás", "squad": "Értékesítés és támogatás", "position": "Ügyfélszolgálatos"},
+        {"name": "Szabó Gergely", "squad": "Rendvédelmi robotok", "position": "Rendvédelmi szakértő"},
+        {"name": "Illés Márton (Kutató tiszt)", "squad": "Katonai robotok", "position": "Katonai szakértő"},
+        {"name": "Horváth Tamás", "squad": "Értékesítés és támogatás", "position": "Ügyfélmenedzser"},
         {"name": "Nagy Eszter", "squad": "Jog és szabályozás", "position": "Jogi szakértő"},
         {"name": "Molnár Róbert", "squad": "Digitális kampánymenedzsment", "position": "Digitális kampány szakértő"},
         {"name": "Kiss Miklós", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
         {"name": "Papp Lilla", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
-        {"name": "Dr. Varga Zoltán", "squad": "Rendvédelmi robotok", "position": "Tudós"},
-        {"name": "Szilágyi Katalin", "squad": "Katonai robotok", "position": "Katona"},
-        {"name": "Kádár Gábor", "squad": "Értékesítés és támogatás", "position": "Ügyfélszolgálatos"},
-        {"name": "Horváth Boglárka", "squad": "Jog és szabályozás", "position": "Jogi szakértő"},
+        {"name": "Varga Zoltán", "squad": "Rendvédelmi robotok", "position": "Fejlesztő"},
+        {"name": "Szilágyi Katalin (Kutató tiszt)", "squad": "Katonai robotok", "position": "Katonai szakértő"},
+        {"name": "Kádár Gábor", "squad": "Értékesítés és támogatás", "position": "Ügyfélmenedzser"},
+        {"name": "Horváth Boglárka", "squad": "Jog és szabályozás", "position": "Ügyvéd"},
         {"name": "Dr. Farkas Ferenc", "squad": "Digitális kampánymenedzsment", "position": "Digitális kampány szakértő"},
-        {"name": "Kovács Krisztina", "squad": "Intelligencia fejlesztés", "position": "Fejlesztő"},
-        {"name": "Nagy József", "squad": "Funkcionalitás fejlesztés", "position": "Fejlesztő"},
-        {"name": "Ezr. Szabó Kornél", "squad": "Rendvédelmi robotok", "position": "Tudós"},
-        {"name": "Kádár Hajnalka", "squad": "Katonai robotok", "position": "Katona"},
-        {"name": "Horváth Mária", "squad": "Értékesítés és támogatás", "position": "Ügyfélszolgálatos"},
-        {"name": "Nagy Nóra", "squad": "Jog és szabályozás", "position": "Jogi szakértő"},
-        {"name": "Kiss Gábor", "squad": "Digitális kampánymenedzsment", "position": "Digitális kampány szakértő"}
+        {"name": "Kovács Krisztina", "squad": "Intelligencia fejlesztés", "position": "Mérnök"},
+        {"name": "Nagy József", "squad": "Funkcionalitás fejlesztés", "position": "Mérnök"},
+        {"name": "Szabó Kornél", "squad": "Rendvédelmi robotok", "position": "Jogi szakértő"},
+        {"name": "Kádár Hajnalka (Kutató tiszt)", "squad": "Katonai robotok", "position": "Katonai szakértő"},
+        {"name": "Horváth Mária", "squad": "Értékesítés és támogatás", "position": "Ügyfélmenedzser"},
+        {"name": "Nagy Nóra", "squad": "Jog és szabályozás", "position": "Ügyvéd"},
+        {"name": "Kiss Gábor", "squad": "Digitális kampánymenedzsment", "position": "Fejlesztő"},
+        {"name": "Túrós Márton", "squad": "CRM fejlesztés", "position": "Vezető"},
+        {"name": "Piros Nóra", "squad": "CRM fejlesztés", "position": "Fejlesztő"},
+        {"name": "Havas László", "squad": "CRM fejlesztés", "position": "Fejlesztő"},
+        {"name": "Janicsák Gábor", "squad": "CRM fejlesztés", "position": "Fejlesztő"}
     ]
 }

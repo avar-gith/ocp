@@ -2,7 +2,58 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Szervezeti Ábra</h1>
-<p>Ez a lap a szervezeti ábra bemutatására szolgál. Jelenleg demo szöveget tartalmaz.</p>
-<p>Részletek a szervezet felépítéséről és tagjairól itt fognak megjelenni.</p>
+<div class="org_container">
+    <div class="org_row">
+        <!-- Bal oszlop: Szervezeti hierarchia -->
+        <div class="org_box org_box_left">
+            <h2>Szervezeti Ábra</h2><br/>
+            <div class="hierarchy">
+                {% for company in companies %}
+                    <h3>{{ company.name }}</h3>
+                    <p>{{ company.description }}</p>
+                    <ul>
+                        {% for team in company.team_set.all %}
+                            <li>
+                                <strong>Team:</strong> {{ team.name }} - {{ team.description }}
+                                <ul>
+                                    {% for squad in team.squad_set.all %}
+                                        <br/>
+                                        <li>
+                                            <strong>Squad:</strong> {{ squad.name }} - {{ squad.description }}
+                                            <br/><br/>
+                                            <ul>
+                                                {% for employee in squad.employee_set.all %}
+                                                    <li>{{ employee.name }} ({{ employee.position.name }})</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Jobb oszlop: Más tartalom vagy szervezeti részletek -->
+        <div class="org_box org_box_right">
+            <h2>Inspiráció</h2> <br/>
+        
+            <h6 class="text-primary">Szervezeti teljesítmény előrejelzése és optimalizálása mesterséges intelligencia segítségével</h6>
+            <p style="text-align: justify;">A mesterséges intelligencia (AI) alkalmazása lehetővé teszi a vezetők számára, hogy a szervezeti adatokat – mint például a csoportok, tribe-ok, squadok, chapterek és teamek létszáma, szakértelme, időbeosztása, hierarchiája, felelőssége, végzettsége és eredményei – alaposan elemezzék. Az AI algoritmusok képesek előre jelezni a szervezet teljesítményét, azonosítani a potenciális kihívásokat és optimalizálási lehetőségeket. Például a gépi tanulás segítségével megjósolható, mely csapatok teljesítenek alul, és milyen intézkedések javíthatják a teljesítményüket.</p>
+        
+            <h6 class="text-primary">Humánerőforrás-menedzsment és tehetségazonosítás AI alkalmazásával</h6>
+            <p style="text-align: justify;">Az AI technológiák alkalmazása a humánerőforrás-menedzsmentben lehetővé teszi a tehetségek azonosítását és a munkaerő fejlesztését. A vezetők az AI segítségével elemezhetik a munkavállalók végzettségét, szakértelmét, teljesítményét és karrierútját, hogy azonosítsák a potenciális vezetőket vagy szakértőket. Emellett az AI alapú rendszerek segíthetnek a toborzásban, azáltal hogy előre jelzik, mely jelöltek illeszkednek legjobban a szervezet kultúrájába és céljaiba.</p>
+        
+            <h6 class="text-primary">Szervezeti struktúra és folyamatok elemzése és fejlesztése AI-alapú megoldásokkal</h6>
+            <p style="text-align: justify;">Az AI lehetőséget nyújt a szervezeti struktúra és folyamatok mélyreható elemzésére. A vezetők az AI segítségével azonosíthatják a szervezeti hierarchiában rejlő inefficienciákat, és optimalizálhatják a csapatok közötti együttműködést. Például a folyamatbányászat és a hálózatelemzés segítségével feltárhatók a kommunikációs csatornák és a munkafolyamatok gyenge pontjai, ami alapot ad a szervezeti fejlesztésekhez.</p>
+        
+            <h6 class="text-primary">Döntéshozatal és stratégiai tervezés támogatása mesterséges intelligencia által</h6>
+            <p style="text-align: justify;">A mesterséges intelligencia eszközei támogatják a vezetőket a megalapozottabb döntéshozatalban és a stratégiai tervezésben. Az AI-alapú előrejelző modellek és adatelemzések segíthetnek megérteni a piaci trendeket, a versenytársak tevékenységét és a belső szervezeti dinamikákat. Ez lehetővé teszi a vezetők számára, hogy adatvezérelt döntéseket hozzanak, optimalizálják az erőforrások elosztását, és hosszú távú stratégiákat alakítsanak ki a szervezet sikeres működése érdekében.</p>
+        </div>
+        
+        
+    </div>
+</div>
 {% endblock %}
